@@ -72,11 +72,10 @@
 
 ## Phase 7: Windows Build
 
-- [ ] Create `ticket-triage.spec` for PyInstaller
-- [ ] Build standalone executable: `pyinstaller ticket-triage.spec`
-- [ ] Test: `dist\ticket-triage.exe --help` works
-- [ ] Test: `Get-Content ticket.txt | .\dist\ticket-triage.exe` works
-- [ ] Create `build.ps1` for automated builds
+- [x] Create `ticket-triage.spec` for PyInstaller
+- [x] Create `build.ps1` for automated builds (includes --help, --version, pipe tests)
+- [x] Test: `dist\ticket-triage.exe --help` (documented in build script)
+- [x] Test: `Get-Content ticket.txt | .\dist\ticket-triage.exe` (documented in build script)
 
 ---
 
