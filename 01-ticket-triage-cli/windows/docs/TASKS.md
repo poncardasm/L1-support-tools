@@ -81,10 +81,10 @@
 
 ## Phase 8: Docs + Polish
 
-- [ ] Write `README.md` with Windows install instructions + usage examples
-- [ ] Add PowerShell-specific examples
-- [ ] Add `--help` docstring and Click built-in help
-- [ ] Tag v1.0.0 git tag
+- [x] Write `README.md` with Windows install instructions + usage examples
+- [x] Add PowerShell-specific examples
+- [x] Add `--help` docstring and Click built-in help (already in Phase 3)
+- [ ] Tag v1.0.0 git tag (user to tag when ready)
 
 ---
 
