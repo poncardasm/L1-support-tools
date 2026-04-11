@@ -14,6 +14,21 @@ NN-tool-name/
 
 Tools are numbered 01-07 for ordering.
 
+## Git Repository
+
+**IMPORTANT:** This is a single monorepo. **Do NOT create separate `.git` directories** inside tool folders or their subdirectories. Always commit to the main repository at the root level:
+
+```bash
+# Correct: Run git commands from the repo root
+cd /Users/mchael/gh-repo/projects/L1-support-tools
+git add 01-ticket-triage-cli/windows/
+git commit -m "feat: add Windows ticket-triage implementation"
+
+# Wrong: Do NOT do this
+cd 01-ticket-triage-cli/windows/ && git init   # ❌ NEVER do this
+git add 01-ticket-triage-cli/windows/.git       # ❌ NEVER commit nested repos
+```
+
 ## Tool Stack
 
 All tools use:
