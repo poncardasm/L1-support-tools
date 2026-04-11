@@ -14,17 +14,17 @@
 
 ## Phase 2: Rule Engine + Core Logic
 
-- [ ] Create `ticket_triage/rules.yaml` with all 8 categories (include `suggested_action` field per category)
-- [ ] Implement `ticket_triage/triage.py`:
-  - `load_rules()` — load YAML, merge user config from `%APPDATA%`
-  - `TriageResult` namedtuple
-  - `triage()` — main function
-  - `score_priority()` — P1 override logic, urgency modifiers, priority bump
-  - `score_confidence()` — confidence based on keyword match count and category overlap
-  - `check_escalation()` — flag conditions
-- [ ] Verify all 8 categories match via keyword tests
-- [ ] Verify P1 override words bump priority correctly
-- [ ] Verify escalation flags fire on known L2 patterns
+- [x] Create `ticket_triage/rules.yaml` with all 8 categories (include `suggested_action` field per category)
+- [x] Implement `ticket_triage/triage.py`:
+  - [x] `load_rules()` — load YAML, merge user config from `%APPDATA%`
+  - [x] `TriageResult` namedtuple
+  - [x] `triage()` — main function
+  - [x] `score_priority()` — P1 override logic, urgency modifiers, priority bump
+  - [x] `score_confidence()` — confidence based on keyword match count and category overlap
+  - [x] `check_escalation()` — flag conditions
+- [x] Verify all 8 categories match via keyword tests
+- [x] Verify P1 override words bump priority correctly
+- [x] Verify escalation flags fire on known L2 patterns
 
 ---
 
