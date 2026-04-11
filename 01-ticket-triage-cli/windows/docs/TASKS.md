@@ -63,10 +63,10 @@
 
 ## Phase 6: Test Suite
 
-- [ ] All Phase 2-5 tests passing
-- [ ] Add fixtures: `tests/fixtures/*.txt` — one ticket per category
-- [ ] Add confidence scoring tests (High/Medium/Low)
-- [ ] Run full suite: `pytest tests/ -v`
+- [x] All Phase 2-5 tests passing (63 tests)
+- [x] Add fixtures: `tests/fixtures/*.txt` — one ticket per category (8 files)
+- [x] Add confidence scoring tests (High/Medium/Low)
+- [x] Run full suite: `pytest tests/ -v`
 
 ---
 

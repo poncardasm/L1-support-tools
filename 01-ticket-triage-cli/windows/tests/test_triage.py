@@ -478,3 +478,67 @@ class TestLLMMode:
             result = runner.invoke(triage_cli, ["--llm"], input="VPN connection down")
             assert result.exit_code == 0  # Falls back to rule engine silently
             assert "Network/VPN" in result.output or "VPN" in result.output
+
+
+class TestFixtures:
+    """Tests using fixture files from tests/fixtures/."""
+
+    @pytest.fixture
+    def rules(self):
+        return load_rules()
+
+    @pytest.fixture
+    def fixtures_dir(self):
+        """Return path to fixtures directory."""
+        return Path(__file__).parent / "fixtures"
+
+    def test_authentication_fixture(self, rules, fixtures_dir):
+        """Test authentication category with fixture file."""
+        ticket_text = (fixtures_dir / "authentication.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Authentication"
+        assert result.confidence in ["High", "Medium"]
+
+    def test_network_vpn_fixture(self, rules, fixtures_dir):
+        """Test network/VPN category with fixture file."""
+        ticket_text = (fixtures_dir / "network_vpn.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Network/VPN"
+
+    def test_email_outlook_fixture(self, rules, fixtures_dir):
+        """Test email/Outlook category with fixture file."""
+        ticket_text = (fixtures_dir / "email_outlook.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Email/Outlook"
+
+    def test_hardware_fixture(self, rules, fixtures_dir):
+        """Test hardware category with fixture file."""
+        ticket_text = (fixtures_dir / "hardware.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Hardware"
+        assert result.flag_l2 == True  # Hardware failure detected
+
+    def test_software_fixture(self, rules, fixtures_dir):
+        """Test software category with fixture file."""
+        ticket_text = (fixtures_dir / "software.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Software"
+
+    def test_access_request_fixture(self, rules, fixtures_dir):
+        """Test access request category with fixture file."""
+        ticket_text = (fixtures_dir / "access_request.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Access Request"
+
+    def test_printing_fixture(self, rules, fixtures_dir):
+        """Test printing category with fixture file."""
+        ticket_text = (fixtures_dir / "printing.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Printing"
+
+    def test_other_unknown_fixture(self, rules, fixtures_dir):
+        """Test other/unknown category with fixture file."""
+        ticket_text = (fixtures_dir / "other_unknown.txt").read_text()
+        result = triage(ticket_text, rules)
+        assert result.category == "Other/Unknown"
+        assert result.confidence == "Low"

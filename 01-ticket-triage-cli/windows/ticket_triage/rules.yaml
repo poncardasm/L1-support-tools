@@ -35,7 +35,7 @@ categories:
     priority_bump: 0
 
   access_request:
-    keywords: [access, permissions, sharepoint, teams, group, role, entitlement, "need access", "request access", authorization, privileges, rights]
+    keywords: [permissions, sharepoint, teams, group, role, entitlement, "need access", "request access", authorization, privileges, rights]
     escalation: L2 if elevated privileges or sensitive resource access requested
     suggested_action: Verify manager approval, check RBAC policy, provision access via IAM portal
     kb: KB-1006
