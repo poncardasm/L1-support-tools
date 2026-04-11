@@ -55,23 +55,23 @@
 
 ## Phase 5: Config Override
 
-- [ ] Implement `~/.config/ticket-triage/rules.yaml` merge
-- [ ] Test: user rules override defaults
+- [x] Implement `~/.config/ticket-triage/rules.yaml` merge
+- [x] Test: user rules override defaults
 
 ---
 
 ## Phase 6: Test Suite
 
-- [ ] All Phase 2-5 tests passing
-- [ ] Add fixtures: `tests/fixtures/*.txt` — one ticket per category
-- [ ] Add confidence scoring tests (High/Medium/Low)
-- [ ] Run full suite: `pytest tests/ -v`
+- [x] All Phase 2-5 tests passing
+- [x] Add fixtures: `tests/fixtures/*.txt` — one ticket per category
+- [x] Add confidence scoring tests (High/Medium/Low)
+- [x] Run full suite: `pytest tests/ -v`
 
 ---
 
 ## Phase 7: Homebrew Packaging
 
-- [ ] Create `Formula/ticket-triage.rb` Homebrew formula
+- [x] Create `Formula/ticket-triage.rb` Homebrew formula
 - [ ] Test: `brew install -- Formula/ticket-triage.rb` works
 - [ ] Test: `ticket-triage` command available after install
 - [ ] Create tap repository (optional)
@@ -80,9 +80,9 @@
 
 ## Phase 8: Docs + Polish
 
-- [ ] Write `README.md` with macOS install instructions + usage examples
-- [ ] Add Homebrew installation instructions
-- [ ] Add `--help` docstring and Click built-in help
+- [x] Write `README.md` with macOS install instructions + usage examples
+- [x] Add Homebrew installation instructions
+- [x] Add `--help` docstring and Click built-in help
 - [ ] Tag v1.0.0 git tag
 
 ---

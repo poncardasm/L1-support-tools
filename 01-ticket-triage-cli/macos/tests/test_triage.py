@@ -1,5 +1,7 @@
 """Test suite for ticket-triage CLI."""
 
+from pathlib import Path
+
 import pytest
 from ticket_triage.triage import (
     load_rules,
@@ -289,3 +291,69 @@ class TestOutputFormatters:
         assert data["category"] == "authentication"
         assert data["priority"] == "P2"
         assert data["flag_l2"] == False
+
+
+class TestFixtures:
+    """Test fixture files for each category."""
+
+    @pytest.fixture
+    def rules(self):
+        return load_rules()
+
+    def load_fixture(self, filename):
+        """Load a fixture file from tests/fixtures/."""
+        fixture_path = Path(__file__).parent / "fixtures" / filename
+        with open(fixture_path, "r") as f:
+            return f.read()
+
+    def test_authentication_fixture(self, rules):
+        """Test authentication fixture file."""
+        text = self.load_fixture("authentication.txt")
+        result = triage(text, rules)
+        assert result.category == "authentication"
+        assert result.confidence == "High"  # Multiple keywords matched
+        assert result.flag_l2 == True  # MFA/locked detected
+
+    def test_network_fixture(self, rules):
+        """Test network fixture file."""
+        text = self.load_fixture("network.txt")
+        result = triage(text, rules)
+        assert result.category == "network"
+
+    def test_email_fixture(self, rules):
+        """Test email fixture file."""
+        text = self.load_fixture("email.txt")
+        result = triage(text, rules)
+        assert result.category == "email"
+
+    def test_hardware_fixture(self, rules):
+        """Test hardware fixture file."""
+        text = self.load_fixture("hardware.txt")
+        result = triage(text, rules)
+        assert result.category == "hardware"
+        assert result.flag_l2 == True  # Hardware failure detected
+
+    def test_software_fixture(self, rules):
+        """Test software fixture file."""
+        text = self.load_fixture("software.txt")
+        result = triage(text, rules)
+        assert result.category == "software"
+
+    def test_access_request_fixture(self, rules):
+        """Test access request fixture file."""
+        text = self.load_fixture("access_request.txt")
+        result = triage(text, rules)
+        assert result.category == "access_request"
+
+    def test_printing_fixture(self, rules):
+        """Test printing fixture file."""
+        text = self.load_fixture("printing.txt")
+        result = triage(text, rules)
+        assert result.category == "printing"
+
+    def test_unknown_fixture(self, rules):
+        """Test unknown fixture file."""
+        text = self.load_fixture("unknown.txt")
+        result = triage(text, rules)
+        assert result.category == "Other/Unknown"
+        assert result.confidence == "Low"
