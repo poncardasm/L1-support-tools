@@ -190,6 +190,13 @@ trace.zip
 .stylelintcache
 .yarn-integrity
 
+# Python Linters
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
 # Database
 *.db
 *.sqlite
