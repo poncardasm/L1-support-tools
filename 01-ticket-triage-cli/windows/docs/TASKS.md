@@ -30,16 +30,16 @@
 
 ## Phase 3: CLI Interface
 
-- [ ] Implement main Click command with `--file`, `--llm`, `--json`, `--version` flags
-- [ ] Implement stdin detection via `sys.stdin.isatty()`
-- [ ] Route input: file → stdin → error
-- [ ] Implement text output formatter
-- [ ] Implement JSON output formatter
-- [ ] Implement exit codes (0, 1, 2)
-- [ ] Test: `Get-Content ticket.txt | ticket-triage` works
-- [ ] Test: `ticket-triage --file C:\tickets\ticket.txt` works
-- [ ] Test: `ticket-triage --json` outputs valid JSON
-- [ ] Test: empty stdin exits with code 1
+- [x] Implement main Click command with `--file`, `--llm`, `--json`, `--version` flags
+- [x] Implement stdin detection via `sys.stdin.isatty()`
+- [x] Route input: file → stdin → error
+- [x] Implement text output formatter
+- [x] Implement JSON output formatter
+- [x] Implement exit codes (0, 1, 2)
+- [x] Test: `Get-Content ticket.txt | ticket-triage` works
+- [x] Test: `ticket-triage --file C:\tickets\ticket.txt` works
+- [x] Test: `ticket-triage --json` outputs valid JSON
+- [x] Test: empty stdin exits with code 1
 
 ---
 

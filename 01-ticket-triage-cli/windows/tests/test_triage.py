@@ -1,6 +1,13 @@
 """Tests for the ticket triage CLI."""
 
+import json
+import subprocess
+import sys
+from pathlib import Path
+
 import pytest
+from click.testing import CliRunner
+
 from ticket_triage.triage import (
     triage,
     load_rules,
@@ -9,6 +16,125 @@ from ticket_triage.triage import (
     check_escalation,
     TriageResult,
 )
+from ticket_triage.__main__ import triage_cli, format_text_output, format_json_output
+
+
+class TestCLI:
+    """Integration tests for the CLI interface."""
+
+    @pytest.fixture
+    def runner(self):
+        """Click test runner."""
+        return CliRunner()
+
+    def test_cli_help(self, runner):
+        """Test --help displays usage information."""
+        result = runner.invoke(triage_cli, ["--help"])
+        assert result.exit_code == 0
+        assert "Triage a support ticket" in result.output
+        assert "--file" in result.output
+        assert "--json" in result.output
+        assert "--version" in result.output
+
+    def test_cli_version(self, runner):
+        """Test --version displays version."""
+        result = runner.invoke(triage_cli, ["--version"])
+        assert result.exit_code == 0
+        assert "1.0.0" in result.output
+
+    def test_cli_stdin_input(self, runner):
+        """Test reading from stdin."""
+        result = runner.invoke(triage_cli, input="User password expired in EntraID")
+        assert result.exit_code == 0
+        assert "Category: Authentication" in result.output
+        assert "Priority:" in result.output
+
+    def test_cli_json_output(self, runner):
+        """Test --json flag outputs valid JSON."""
+        result = runner.invoke(triage_cli, ["--json"], input="VPN connection down")
+        assert result.exit_code == 0
+        # Verify it's valid JSON
+        data = json.loads(result.output)
+        assert "category" in data
+        assert "priority" in data
+        assert "confidence" in data
+
+    def test_cli_file_input(self, runner, tmp_path):
+        """Test --file option reads from file."""
+        ticket_file = tmp_path / "ticket.txt"
+        # Use a ticket that won't trigger L2 escalation
+        ticket_file.write_text("User needs help with email signature settings")
+
+        result = runner.invoke(triage_cli, ["--file", str(ticket_file)])
+        assert result.exit_code == 0
+        assert "Email/Outlook" in result.output or "Email" in result.output
+
+    def test_cli_file_not_found(self, runner):
+        """Test --file with non-existent file exits with code 1."""
+        result = runner.invoke(triage_cli, ["--file", "/nonexistent/path.txt"])
+        assert result.exit_code == 1
+        assert "File not found" in result.output
+
+    def test_cli_no_input(self, runner):
+        """Test CLI with no input shows error."""
+        result = runner.invoke(triage_cli)
+        assert result.exit_code == 1
+        assert "input" in result.output.lower()
+
+    def test_cli_empty_stdin(self, runner):
+        """Test CLI with empty stdin shows error."""
+        result = runner.invoke(triage_cli, input="")
+        assert result.exit_code == 1
+        assert "Empty input" in result.output
+
+    def test_cli_exit_code_2_for_l2_escalation(self, runner):
+        """Test exit code 2 when L2 escalation is required."""
+        result = runner.invoke(triage_cli, input="Hardware failure on laptop disk")
+        assert result.exit_code == 2
+        assert "flag_l2" in format_json_output(triage("Hardware failure", load_rules()))
+
+    def test_cli_exit_code_0_normal_ticket(self, runner):
+        """Test exit code 0 for normal non-escalated ticket."""
+        result = runner.invoke(
+            triage_cli, input="Question about password reset process"
+        )
+        assert result.exit_code == 0
+
+    def test_format_text_output(self):
+        """Test text output formatter."""
+        result = TriageResult(
+            category="Authentication",
+            priority="P2 (Medium)",
+            action="Reset password",
+            escalate_to="None",
+            kb="KB-1001",
+            signals=["password", "login"],
+            confidence="High",
+            flag_l2=False,
+        )
+        output = format_text_output(result)
+        assert "Category: Authentication" in output
+        assert "Priority: P2 (Medium)" in output
+        assert "Confidence: High" in output
+        assert "Related KB: KB-1001" in output
+
+    def test_format_json_output(self):
+        """Test JSON output formatter."""
+        result = TriageResult(
+            category="Authentication",
+            priority="P2 (Medium)",
+            action="Reset password",
+            escalate_to="None",
+            kb="KB-1001",
+            signals=["password"],
+            confidence="Medium",
+            flag_l2=False,
+        )
+        output = format_json_output(result)
+        data = json.loads(output)
+        assert data["category"] == "Authentication"
+        assert data["priority"] == "P2"
+        assert data["flag_l2"] == False
 
 
 class TestTriage:
