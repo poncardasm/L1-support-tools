@@ -4,6 +4,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from unittest.mock import patch, MagicMock
 
 import pytest
 from click.testing import CliRunner
@@ -14,7 +15,9 @@ from ticket_triage.triage import (
     score_priority,
     score_confidence,
     check_escalation,
+    ollama_triage,
     TriageResult,
+    HAS_REQUESTS,
 )
 from ticket_triage.__main__ import triage_cli, format_text_output, format_json_output
 
@@ -421,3 +424,57 @@ class TestCheckEscalation:
             ["authentication"],
         )
         assert flag == False
+
+
+class TestLLMMode:
+    """Tests for LLM mode with mocked Ollama."""
+
+    @pytest.fixture
+    def runner(self):
+        """Click test runner."""
+        return CliRunner()
+
+    @pytest.fixture
+    def rules(self):
+        return load_rules()
+
+    def test_ollama_triage_fallback_when_no_requests(self, rules):
+        """Test ollama_triage returns None when requests not available."""
+        with patch("ticket_triage.triage.HAS_REQUESTS", False):
+            result = ollama_triage("Test ticket", rules)
+            assert result is None
+
+    def test_ollama_triage_fallback_on_connection_error(self, rules):
+        """Test ollama_triage returns None on connection error."""
+        if not HAS_REQUESTS:
+            pytest.skip("requests not installed")
+
+        with patch("ticket_triage.triage.requests.post") as mock_post:
+            mock_post.side_effect = Exception("Connection refused")
+            result = ollama_triage("Test ticket", rules)
+            assert result is None
+
+    def test_ollama_triage_fallback_on_bad_status(self, rules):
+        """Test ollama_triage returns None on non-200 status."""
+        if not HAS_REQUESTS:
+            pytest.skip("requests not installed")
+
+        with patch("ticket_triage.triage.requests.post") as mock_post:
+            mock_response = MagicMock()
+            mock_response.status_code = 500
+            mock_post.return_value = mock_response
+            result = ollama_triage("Test ticket", rules)
+            assert result is None
+
+    def test_triage_with_llm_flag_uses_fallback(self, rules):
+        """Test triage falls back to rule engine when Ollama unavailable."""
+        with patch("ticket_triage.triage.HAS_REQUESTS", False):
+            result = triage("User password expired", rules, use_llm=True)
+            assert result.category == "Authentication"  # Falls back to rule engine
+
+    def test_cli_with_llm_flag(self, runner):
+        """Test CLI accepts --llm flag."""
+        with patch("ticket_triage.triage.HAS_REQUESTS", False):
+            result = runner.invoke(triage_cli, ["--llm"], input="VPN connection down")
+            assert result.exit_code == 0  # Falls back to rule engine silently
+            assert "Network/VPN" in result.output or "VPN" in result.output

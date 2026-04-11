@@ -94,7 +94,7 @@ def triage_cli(file: Optional[str], llm: bool, output_json: bool):
 
     # Run triage
     try:
-        result = triage(ticket_text, rules)
+        result = triage(ticket_text, rules, use_llm=llm)
     except ValueError as e:
         click.echo(f"Error: {e}", err=True)
         sys.exit(1)

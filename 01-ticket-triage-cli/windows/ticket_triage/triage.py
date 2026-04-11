@@ -1,12 +1,20 @@
 """Core triage logic for the ticket triage CLI."""
 
+import json
 from collections import namedtuple
 from pathlib import Path
 from typing import Optional
 import os
-import re
 
 import yaml
+
+# Try to import requests for LLM mode - optional dependency
+try:
+    import requests
+
+    HAS_REQUESTS = True
+except ImportError:
+    HAS_REQUESTS = False
 
 TriageResult = namedtuple(
     "TriageResult",
@@ -224,15 +232,99 @@ def check_escalation(
     return flag_l2, escalation_msg
 
 
-def triage(raw_ticket: str, rules: Optional[dict] = None) -> TriageResult:
+def ollama_triage(ticket_text: str, rules: dict) -> Optional[TriageResult]:
+    """Use local Ollama for enhanced triage.
+
+    Returns refined TriageResult or None if Ollama unavailable.
+    Falls back to rule engine if Ollama is down.
+    """
+    if not HAS_REQUESTS:
+        return None
+
+    categories = rules.get("categories", {})
+    category_names = [k.replace("_", " ").title() for k in categories.keys()]
+
+    prompt = f"""Analyze this support ticket and provide a structured triage:
+
+Ticket: {ticket_text}
+
+Available categories: {", ".join(category_names)}
+
+Return a JSON object with these exact fields:
+- category: best matching category from the list
+- priority: P1, P2, P3, or P4
+- confidence: High, Medium, or Low
+- reasoning: brief explanation of your classification
+
+Response format (JSON only):"""
+
+    try:
+        resp = requests.post(
+            "http://localhost:11434/api/generate",
+            json={
+                "model": "llama3.2",
+                "prompt": prompt,
+                "stream": False,
+                "format": "json",
+            },
+            timeout=5,
+        )
+
+        if resp.status_code != 200:
+            return None
+
+        llm_response = resp.json()
+        llm_result = json.loads(llm_response.get("response", "{}"))
+
+        # Map LLM result to TriageResult
+        llm_category = llm_result.get("category", "Other/Unknown")
+        # Find matching internal category name
+        internal_cat = None
+        for cat_key, cat_data in categories.items():
+            display_name = cat_key.replace("_", " ").title()
+            if llm_category.lower() in [display_name.lower(), cat_key.lower()]:
+                internal_cat = cat_key
+                break
+
+        if not internal_cat:
+            return None
+
+        cat_data = categories.get(internal_cat, {})
+
+        # Determine if L2 escalation needed based on LLM confidence and category
+        priority = llm_result.get("priority", "P2")
+        priority_label = PRIORITY_LABELS.get(
+            PRIORITY_LEVELS.get(priority, 2), "P2 (Medium)"
+        )
+
+        flag_l2, escalate_to = check_escalation(
+            ticket_text, internal_cat, priority_label, rules, [internal_cat]
+        )
+
+        return TriageResult(
+            category=llm_category,
+            priority=priority_label,
+            action=cat_data.get("suggested_action", "No action available"),
+            escalate_to=escalate_to,
+            kb=cat_data.get("kb", "KB-0000"),
+            signals=[],
+            confidence=llm_result.get("confidence", "Medium"),
+            flag_l2=flag_l2,
+        )
+
+    except Exception:
+        # Any error falls back to rule engine
+        return None
+
+
+def triage(
+    raw_ticket: str, rules: Optional[dict] = None, use_llm: bool = False
+) -> TriageResult:
     """Main triage function.
 
-    1. Normalize and extract keywords from input
-    2. Match against category keywords
-    3. Score priority (P1 override words + base score)
-    4. Score confidence based on match count and category overlap
-    5. Check escalation conditions
-    6. Return TriageResult namedtuple
+    1. If use_llm=True and Ollama available, try LLM refinement
+    2. Otherwise, use rule engine triage
+    3. Return TriageResult
     """
     if not raw_ticket or not raw_ticket.strip():
         raise ValueError("empty ticket")
@@ -240,6 +332,14 @@ def triage(raw_ticket: str, rules: Optional[dict] = None) -> TriageResult:
     if rules is None:
         rules = load_rules()
 
+    # Try LLM mode if requested
+    if use_llm:
+        llm_result = ollama_triage(raw_ticket, rules)
+        if llm_result is not None:
+            return llm_result
+        # Fall back to rule engine silently
+
+    # Rule engine triage
     # Normalize input
     ticket_lower = raw_ticket.lower()
 

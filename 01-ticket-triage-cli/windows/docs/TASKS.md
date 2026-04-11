@@ -45,19 +45,19 @@
 
 ## Phase 4: LLM Mode (if Ollama available)
 
-- [ ] Implement `ollama_triage()` function
-- [ ] Wire `--llm` flag: rule engine → LLM refinement fallback chain
-- [ ] Test: `--llm` with Ollama running returns refined result
-- [ ] Test: `--llm` with Ollama down falls back to rule engine silently
-- [ ] Add `requests` as optional dependency in `pyproject.toml` (only installed for LLM mode)
-- [ ] Mock Ollama responses in tests for CI environments without Ollama
+- [x] Implement `ollama_triage()` function
+- [x] Wire `--llm` flag: rule engine → LLM refinement fallback chain
+- [x] Test: `--llm` with Ollama running returns refined result (mocked)
+- [x] Test: `--llm` with Ollama down falls back to rule engine silently
+- [x] Add `requests` as optional dependency in `pyproject.toml` (only installed for LLM mode)
+- [x] Mock Ollama responses in tests for CI environments without Ollama
 
 ---
 
 ## Phase 5: Config Override
 
-- [ ] Implement `%APPDATA%\ticket-triage\rules.yaml` merge
-- [ ] Test: user rules override defaults
+- [x] Implement `%APPDATA%\ticket-triage\rules.yaml` merge (already in Phase 2 load_rules())
+- [x] Test: user rules override defaults
 
 ---
 
