@@ -2,12 +2,12 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with Click + PyYAML + requests deps (requests optional, for `--llm`)
-- [ ] Create `ticket_triage/__init__.py` with version
-- [ ] Create `ticket_triage/__main__.py` for `python -m ticket_triage` entry
-- [ ] Create `tests/test_triage.py` with empty test class
-- [ ] Create `.gitignore`
-- [ ] Verify `pip install -e .` works and `ticket-triage --help` prints
+- [x] Create `pyproject.toml` with Click + PyYAML + requests deps (requests optional, for `--llm`)
+- [x] Create `ticket_triage/__init__.py` with version
+- [x] Create `ticket_triage/__main__.py` for `python -m ticket_triage` entry
+- [x] Create `tests/test_triage.py` with empty test class
+- [x] Create `.gitignore`
+- [x] Verify `pip install -e .` works and `ticket-triage --help` prints
 
 ---
 
