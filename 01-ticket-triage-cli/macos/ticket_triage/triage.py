@@ -117,17 +117,17 @@ def check_escalation(
     text_lower = ticket_text.lower()
 
     # Hardware + failure keywords → L2 immediate
-    if category == "Hardware":
-        failure_words = ["failure", "failed", "broken", "dead", "hardware"]
+    if category.lower() == "hardware":
+        failure_words = ["failure", "failed", "broken", "dead"]
         if any(word in text_lower for word in failure_words):
             return True, "L2 immediate - hardware failure"
 
-    # Multiple categories or P1 + Authentication → L2 + Security
-    if category == "Authentication" and priority.startswith("P1"):
+    # P1 + Authentication → L2 + Security
+    if category.lower() == "authentication" and priority.startswith("P1"):
         return True, "L2 + Security - P1 authentication issue"
 
-    # MFA or locked account in authentication
-    if category == "Authentication":
+    # MFA or locked account in authentication (only if not already flagged for P1)
+    if category.lower() == "authentication":
         if "mfa" in text_lower or "locked" in text_lower:
             return True, "L2 if MFA not working or account locked"
 
@@ -162,9 +162,19 @@ def triage(
         keywords = cat_data.get("keywords", [])
         matched = []
         for kw in keywords:
-            # Simple substring match for now
-            if kw.lower() in text_lower:
-                matched.append(kw)
+            kw_lower = kw.lower()
+            # For multi-word keywords (contain space), use simple substring match
+            # For single-word keywords, use word boundary matching
+            if " " in kw_lower:
+                # Multi-word: simple substring match
+                if kw_lower in text_lower:
+                    matched.append(kw)
+            else:
+                # Single-word: use word boundary to avoid partial matches
+                # e.g., "app" should not match "happened"
+                pattern = r"\b" + re.escape(kw_lower) + r"\b"
+                if re.search(pattern, text_lower):
+                    matched.append(kw)
         if matched:
             category_scores[cat_name] = len(matched)
             matched_keywords_per_category[cat_name] = matched

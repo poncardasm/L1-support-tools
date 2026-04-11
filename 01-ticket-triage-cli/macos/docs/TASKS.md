@@ -13,32 +13,32 @@
 
 ## Phase 2: Rule Engine + Core Logic
 
-- [ ] Create `ticket_triage/rules.yaml` with all 8 categories (include `suggested_action` field per category)
-- [ ] Implement `ticket_triage/triage.py`:
+- [x] Create `ticket_triage/rules.yaml` with all 8 categories (include `suggested_action` field per category)
+- [x] Implement `ticket_triage/triage.py`:
   - `load_rules()` — load YAML, merge user config
   - `TriageResult` namedtuple
   - `triage()` — main function
   - `score_priority()` — P1 override logic, urgency modifiers, priority bump
   - `score_confidence()` — confidence based on keyword match count and category overlap
   - `check_escalation()` — flag conditions
-- [ ] Verify all 8 categories match via keyword tests
-- [ ] Verify P1 override words bump priority correctly
-- [ ] Verify escalation flags fire on known L2 patterns
+- [x] Verify all 8 categories match via keyword tests
+- [x] Verify P1 override words bump priority correctly
+- [x] Verify escalation flags fire on known L2 patterns
 
 ---
 
 ## Phase 3: CLI Interface
 
-- [ ] Implement main Click command with `--file`, `--llm`, `--json`, `--version` flags
-- [ ] Implement stdin detection via `sys.stdin.isatty()`
-- [ ] Route input: file → stdin → error
-- [ ] Implement text output formatter
-- [ ] Implement JSON output formatter
-- [ ] Implement exit codes (0, 1, 2)
-- [ ] Test: `cat ticket.txt | ticket-triage` works
-- [ ] Test: `ticket-triage --file /path/to/ticket.txt` works
-- [ ] Test: `ticket-triage --json` outputs valid JSON
-- [ ] Test: empty stdin exits with code 1
+- [x] Implement main Click command with `--file`, `--llm`, `--json`, `--version` flags
+- [x] Implement stdin detection via `sys.stdin.isatty()`
+- [x] Route input: file → stdin → error
+- [x] Implement text output formatter
+- [x] Implement JSON output formatter
+- [x] Implement exit codes (0, 1, 2)
+- [x] Test: `cat ticket.txt | ticket-triage` works
+- [x] Test: `ticket-triage --file /path/to/ticket.txt` works
+- [x] Test: `ticket-triage --json` outputs valid JSON
+- [x] Test: empty stdin exits with code 1
 
 ---
 
