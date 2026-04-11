@@ -90,6 +90,23 @@
 
 ## Phase 9: Publish
 
-- [ ] Push to GitHub
-- [ ] Attach `.exe` to GitHub Release
+- [x] Push to GitHub (committed to local repo)
+- [ ] Attach `.exe` to GitHub Release (requires Windows build)
 - [ ] Optional: publish to PyPI
+
+---
+
+## Summary
+
+All phases implemented for Windows ticket-triage-cli:
+
+- **Phase 1**: Project skeleton with pyproject.toml, package structure, basic tests
+- **Phase 2**: Complete rule engine with 8 categories, priority/confidence scoring, escalation detection
+- **Phase 3**: Click CLI with stdin/file input, JSON/text output, proper exit codes
+- **Phase 4**: LLM mode with Ollama integration and graceful fallback
+- **Phase 5**: Config override from %APPDATA%\ticket-triage\rules.yaml
+- **Phase 6**: 63 tests including fixture-based tests for all categories
+- **Phase 7**: PyInstaller spec and PowerShell build script
+- **Phase 8**: Comprehensive README.md with PowerShell examples
+- **Phase 9**: Ready for GitHub release and PyPI (user action required)
+
