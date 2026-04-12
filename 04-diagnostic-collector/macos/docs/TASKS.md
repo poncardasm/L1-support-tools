@@ -10,31 +10,31 @@
 
 ## Phase 2: Collectors (Bash)
 
-- [ ] Implement system info collector
-- [ ] Implement disk info collector with thresholds
-- [ ] Implement memory info collector
-- [ ] Implement network info collector
-- [ ] Implement services collector (launchctl)
-- [ ] Implement log collector (log show)
-- [ ] Implement updates collector (softwareupdate, brew)
-- [ ] Implement active users collector
+- [x] Implement system info collector
+- [x] Implement disk info collector with thresholds
+- [x] Implement memory info collector
+- [x] Implement network info collector
+- [x] Implement services collector (launchctl)
+- [x] Implement log collector (log show)
+- [x] Implement updates collector (softwareupdate, brew)
+- [x] Implement active users collector
 
 ---
 
 ## Phase 3: Python Formatters
 
-- [ ] Implement output parser
-- [ ] Implement Markdown formatter
-- [ ] Implement HTML formatter
-- [ ] Implement JSON formatter
+- [x] Implement output parser
+- [x] Implement Markdown formatter
+- [x] Implement HTML formatter
+- [x] Implement JSON formatter
 
 ---
 
 ## Phase 4: Thresholds
 
-- [ ] Implement disk threshold detection (80%, 90%)
-- [ ] Implement memory threshold detection (90%)
-- [ ] Flag pending security updates
+- [x] Implement disk threshold detection (80%, 90%)
+- [x] Implement memory threshold detection (90%)
+- [x] Flag pending security updates
 
 ---
 
