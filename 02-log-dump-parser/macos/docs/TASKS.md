@@ -2,95 +2,95 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with dependencies
-- [ ] Create `log_parse/__init__.py`
-- [ ] Create `log_parse/__main__.py`
-- [ ] Verify `pip install -e .` works
+- [x] Create `pyproject.toml` with dependencies
+- [x] Create `log_parse/__init__.py`
+- [x] Create `log_parse/__main__.py`
+- [x] Verify `pip install -e .` works
 
 ---
 
 ## Phase 2: Format Detection
 
-- [ ] Implement file format detection
-- [ ] Detect syslog format
-- [ ] Detect journald JSON export
-- [ ] Detect JSON Lines
-- [ ] Detect Docker container logs
-- [ ] Detect Apache/Nginx logs
-- [ ] Fallback to plain text
+- [x] Implement file format detection
+- [x] Detect syslog format
+- [x] Detect journald JSON export
+- [x] Detect JSON Lines
+- [x] Detect Docker container logs
+- [x] Detect Apache/Nginx logs
+- [x] Fallback to plain text
 
 ---
 
 ## Phase 3: Parsers
 
-- [ ] Implement syslog parser
-- [ ] Implement journald parser
-- [ ] Implement JSON Lines parser
-- [ ] Implement Docker parser
-- [ ] Implement plain text parser
+- [x] Implement syslog parser
+- [x] Implement journald parser
+- [x] Implement JSON Lines parser
+- [x] Implement Docker parser
+- [x] Implement plain text parser
 
 ---
 
 ## Phase 4: Analysis
 
-- [ ] Implement error/warning grouping
-- [ ] Implement message normalization
-- [ ] Implement frequency counting
-- [ ] Implement statistics calculation
+- [x] Implement error/warning grouping
+- [x] Implement message normalization
+- [x] Implement frequency counting
+- [x] Implement statistics calculation
 
 ---
 
 ## Phase 5: Filters
 
-- [ ] Implement `--level` filter
-- [ ] Implement `--since` time filter
-- [ ] Implement `--until` time filter
-- [ ] Implement `--source` filter
-- [ ] Implement `--grep` search
+- [x] Implement `--level` filter
+- [x] Implement `--since` time filter
+- [x] Implement `--until` time filter
+- [x] Implement `--source` filter
+- [x] Implement `--grep` search
 
 ---
 
 ## Phase 6: Output Formats
 
-- [ ] Implement text output
-- [ ] Implement JSON output
-- [ ] Implement CSV output
+- [x] Implement text output
+- [x] Implement JSON output
+- [x] Implement CSV output
 
 ---
 
 ## Phase 7: CLI
 
-- [ ] Implement main Click command
-- [ ] Implement all options
-- [ ] Test stdin input
+- [x] Implement main Click command
+- [x] Implement all options
+- [x] Test stdin input
 
 ---
 
 ## Phase 8: Testing
 
-- [ ] Create test fixtures
-- [ ] Test format detection
-- [ ] Test parsing
-- [ ] Test analysis
+- [x] Create test fixtures
+- [x] Test format detection
+- [x] Test parsing
+- [x] Test analysis
 
 ---
 
 ## Phase 9: Homebrew Packaging
 
-- [ ] Create `Formula/log-parse.rb`
-- [ ] Test Homebrew installation
+- [x] Create `Formula/log-parse.rb`
+- [x] Test Homebrew installation
 
 ---
 
 ## Phase 10: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document Unix-specific log formats
-- [ ] Add usage examples
+- [x] Write `README.md`
+- [x] Document Unix-specific log formats
+- [x] Add usage examples
 
 ---
 
 ## Phase 11: Publish
 
-- [ ] Push to GitHub
+- [x] Push to GitHub
 - [ ] Optional: PyPI
