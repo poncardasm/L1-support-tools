@@ -11,25 +11,25 @@
 
 ## Phase 2: CSV Parsing
 
-- [ ] Implement CSV reader with `csv.DictReader`
-- [ ] Handle missing columns gracefully
-- [ ] Support both comma and semicolon delimiters
+- [x] Implement CSV reader with `csv.DictReader`
+- [x] Handle missing columns gracefully
+- [x] Support both comma and semicolon delimiters
 
 ---
 
 ## Phase 3: Operations
 
-- [ ] Implement `password-reset` operation
-- [ ] Implement `add-group` operation
-- [ ] Implement `enable-mailbox` operation
-- [ ] Implement `deprovision` operation
-- [ ] All commands support `--dry-run`
+- [x] Implement `password-reset` operation
+- [x] Implement `add-group` operation
+- [x] Implement `enable-mailbox` operation
+- [x] Implement `deprovision` operation
+- [x] All commands support `--dry-run`
 
 ---
 
 ## Phase 4: Throttling
 
-- [ ] Implement 500ms delay between rows
+- [x] Implement 500ms delay between rows
 - [ ] Test with 100-row CSV
 - [ ] Verify no 429 errors from Graph API
 
@@ -37,8 +37,8 @@
 
 ## Phase 5: Reporting
 
-- [ ] Implement `--report` CSV output
-- [ ] Include all 5 columns
+- [x] Implement `--report` CSV output
+- [x] Include all 5 columns
 - [ ] Test report generation
 
 ---
