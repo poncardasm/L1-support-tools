@@ -2,11 +2,11 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with dependencies
-- [ ] Create `runbook/__init__.py`
-- [ ] Create `runbook/__main__.py`
-- [ ] Create `runbooks/` directory
-- [ ] Verify `pip install -e .` works
+- [x] Create `pyproject.toml` with dependencies
+- [x] Create `runbook/__init__.py`
+- [x] Create `runbook/__main__.py`
+- [x] Create `runbooks/` directory
+- [x] Verify `pip install -e .` works
 
 ---
 
