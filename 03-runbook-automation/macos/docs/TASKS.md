@@ -39,8 +39,8 @@
 
 ## Phase 5: State Management
 
-- [ ] Implement `save_state()` and `load_state()`
-- [ ] Store state in `~/.config/runbook/state/`
+- [x] Implement `save_state()` and `load_state()`
+- [x] Store state in `~/.config/runbook/state/`
 
 ---
 
