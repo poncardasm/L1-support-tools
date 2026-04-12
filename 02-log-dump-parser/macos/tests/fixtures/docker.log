@@ -1,0 +1,7 @@
+{"log": "Starting application server...\n", "stream": "stdout", "time": "2024-01-15T10:30:00.123456789Z"}
+{"log": "Error connecting to database: connection refused\n", "stream": "stderr", "time": "2024-01-15T10:30:05.234567890Z"}
+{"log": "Retrying connection (attempt 1/3)...\n", "stream": "stdout", "time": "2024-01-15T10:30:06.345678901Z"}
+{"log": "Error connecting to database: connection refused\n", "stream": "stderr", "time": "2024-01-15T10:30:11.456789012Z"}
+{"log": "Retrying connection (attempt 2/3)...\n", "stream": "stdout", "time": "2024-01-15T10:30:12.567890123Z"}
+{"log": "Warning: High memory usage detected\n", "stream": "stdout", "time": "2024-01-15T10:35:00.678901234Z"}
+{"log": "Successfully connected to database\n", "stream": "stdout", "time": "2024-01-15T10:30:17.789012345Z"}

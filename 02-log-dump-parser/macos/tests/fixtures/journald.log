@@ -1,0 +1,4 @@
+{"__CURSOR": "s=1234", "__REALTIME_TIMESTAMP": "1705315845000000", "PRIORITY": "3", "SYSLOG_IDENTIFIER": "systemd", "MESSAGE": "Failed to start Application Service"}
+{"__CURSOR": "s=1235", "__REALTIME_TIMESTAMP": "1705315850000000", "PRIORITY": "4", "SYSLOG_IDENTIFIER": "kernel", "MESSAGE": "USB device disconnected"}
+{"__CURSOR": "s=1236", "__REALTIME_TIMESTAMP": "1705315860000000", "PRIORITY": "6", "SYSLOG_IDENTIFIER": "sshd", "MESSAGE": "Accepted publickey for user"}
+{"__CURSOR": "s=1237", "__REALTIME_TIMESTAMP": "1705315900000000", "PRIORITY": "3", "SYSLOG_IDENTIFIER": "database", "MESSAGE": "Connection refused to db:5432"}

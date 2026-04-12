@@ -1,0 +1,16 @@
+Jan 15 10:30:45 server1 sshd[1234]: Authentication failure for user admin from 192.168.1.100
+Jan 15 10:31:02 server1 sshd[1235]: Accepted publickey for user bob from 192.168.1.101
+Jan 15 10:32:15 server1 kernel: [UFW BLOCK] IN=eth0 OUT= MAC=00:11:22:33:44:55 SRC=10.0.0.50
+Jan 15 10:33:22 server1 postgres[2345]: ERROR: connection refused to db:5432
+Jan 15 10:33:45 server1 postgres[2346]: ERROR: connection refused to db:5432
+Jan 15 10:34:01 server1 postgres[2347]: ERROR: disk space threshold exceeded on /dev/sda1
+Jan 15 10:34:15 server1 postgres[2348]: ERROR: disk space threshold exceeded on /dev/sda1
+Jan 15 10:34:30 server1 postgres[2349]: ERROR: disk space threshold exceeded on /dev/sda1
+Jan 15 10:35:12 server1 app[3456]: WARN: Session token expired (idle timeout)
+Jan 15 10:35:15 server1 app[3457]: WARN: Session token expired (idle timeout)
+Jan 15 10:35:18 server1 app[3458]: WARN: Retry attempt for external API call
+Jan 15 10:35:22 server1 app[3459]: WARN: Retry attempt for external API call
+Jan 15 10:35:25 server1 app[3460]: Memory usage above 80%
+Jan 15 10:36:00 server1 nginx[4567]: 192.168.1.102 - - [15/Jan/2024:10:36:00 +0000] "GET /api/health HTTP/1.1" 200 23
+Jan 15 10:36:05 server1 nginx[4568]: 192.168.1.103 - - [15/Jan/2024:10:36:05 +0000] "GET /api/users HTTP/1.1" 500 42
+Jan 15 10:36:10 server1 nginx[4569]: 192.168.1.104 - - [15/Jan/2024:10:36:10 +0000] "POST /api/login HTTP/1.1" 200 156

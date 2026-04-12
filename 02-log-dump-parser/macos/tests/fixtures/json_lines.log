@@ -1,0 +1,8 @@
+{"timestamp": "2024-01-15T10:30:45Z", "level": "ERROR", "source": "database", "message": "Connection refused to db:5432"}
+{"timestamp": "2024-01-15T10:30:46Z", "level": "ERROR", "source": "database", "message": "Connection refused to db:5432"}
+{"timestamp": "2024-01-15T10:31:00Z", "level": "WARN", "source": "cache", "message": "Cache miss for key user:1234"}
+{"timestamp": "2024-01-15T10:32:15Z", "level": "INFO", "source": "api", "message": "Request processed in 23ms"}
+{"timestamp": "2024-01-15T10:33:00Z", "level": "ERROR", "source": "auth", "message": "Authentication failure for user admin"}
+{"timestamp": "2024-01-15T10:33:05Z", "level": "ERROR", "source": "auth", "message": "Authentication failure for user admin"}
+{"timestamp": "2024-01-15T10:34:00Z", "level": "WARN", "source": "memory", "message": "Memory usage above 80%"}
+{"timestamp": "2024-01-15T10:35:00Z", "level": "DEBUG", "source": "worker", "message": "Processing job ID 987654"}
