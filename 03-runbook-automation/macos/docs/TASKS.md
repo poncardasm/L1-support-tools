@@ -12,9 +12,9 @@
 
 ## Phase 2: Markdown Parsing
 
-- [ ] Implement `parse_runbook()` in `parser.py`
-- [ ] Extract `bash`, `sh`, `zsh` code blocks
-- [ ] Handle step numbering
+- [x] Implement `parse_runbook()` in `parser.py`
+- [x] Extract `bash`, `sh`, `zsh` code blocks
+- [x] Handle step numbering
 
 ---
 
