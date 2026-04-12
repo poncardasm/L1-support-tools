@@ -40,16 +40,16 @@
 
 ## Phase 5: Upload Feature
 
-- [ ] Implement `--upload` option
-- [ ] Support configurable endpoint
+- [x] Implement `--upload` option
+- [x] Support configurable endpoint
 
 ---
 
 ## Phase 6: Testing
 
-- [ ] Create Python test suite
-- [ ] Test threshold detection
-- [ ] Test formatters
+- [x] Create Python test suite
+- [x] Test threshold detection
+- [x] Test formatters
 
 ---
 
