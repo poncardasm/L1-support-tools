@@ -2,10 +2,10 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with msgraph-sdk + azure-identity deps
-- [ ] Create `bulk/__init__.py` with version
-- [ ] Create `bulk/__main__.py` for CLI entry
-- [ ] Verify `pip install -e .` works and `bulk-run --help` prints
+- [x] Create `pyproject.toml` with msgraph-sdk + azure-identity deps
+- [x] Create `bulk/__init__.py` with version
+- [x] Create `bulk/__main__.py` for CLI entry
+- [x] Verify `pip install -e .` works and `bulk-run --help` prints
 
 ---
 
