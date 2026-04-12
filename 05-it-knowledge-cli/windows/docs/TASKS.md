@@ -76,14 +76,15 @@
 
 ## Phase 9: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document Ollama setup on Windows
-- [ ] Add usage examples
+- [x] Write `README.md`
+- [x] Document Ollama setup on Windows
+- [x] Add usage examples
 
 ---
 
 ## Phase 10: Publish
 
-- [ ] Push to GitHub
-- [ ] Attach `.exe` to release
+- [x] Push to GitHub (via monorepo)
+- [x] Commits for each completed phase
+- [ ] Optional: Attach `.exe` to release
 - [ ] Optional: PyPI
