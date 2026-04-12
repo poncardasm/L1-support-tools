@@ -53,9 +53,9 @@
 
 ## Phase 7: Documentation
 
-- [ ] Write `README.md` with PowerShell examples
-- [ ] Document CSV format requirements
-- [ ] Add troubleshooting section
+- [x] Write `README.md` with PowerShell examples
+- [x] Document CSV format requirements
+- [x] Add troubleshooting section
 
 ---
 
