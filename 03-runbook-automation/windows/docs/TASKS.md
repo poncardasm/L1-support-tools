@@ -12,9 +12,9 @@
 
 ## Phase 2: Markdown Parsing
 
-- [ ] Implement `Parse-MarkdownSteps.ps1`
-- [ ] Extract `powershell` and `pwsh` code blocks
-- [ ] Handle step numbering
+- [x] Implement `Parse-MarkdownSteps.ps1`
+- [x] Extract `powershell` and `pwsh` code blocks
+- [x] Handle step numbering
 
 ---
 
