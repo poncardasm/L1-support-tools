@@ -20,10 +20,10 @@
 
 ## Phase 3: Step Execution
 
-- [ ] Implement `Invoke-Step.ps1`
-- [ ] Execute PowerShell code
-- [ ] Capture output and exit code
-- [ ] Handle errors
+- [x] Implement `Invoke-Step.ps1`
+- [x] Execute PowerShell code
+- [x] Capture output and exit code
+- [x] Handle errors
 
 ---
 
