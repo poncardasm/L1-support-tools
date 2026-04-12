@@ -29,27 +29,28 @@
 
 ## Phase 4: Runbook Execution
 
-- [ ] Implement `Invoke-Runbook.ps1`
-- [ ] Execute steps in sequence
-- [ ] Handle `--dry-run` mode
-- [ ] Handle `--from-step` option
-- [ ] Handle `--resume` option
+- [x] Implement `Invoke-Runbook.ps1`
+- [x] Execute steps in sequence
+- [x] Handle `--dry-run` mode
+- [x] Handle `--from-step` option
+- [x] Handle `--resume` option
 
 ---
 
 ## Phase 5: State Management
 
-- [ ] Implement `Save-RunbookState.ps1`
-- [ ] Implement `Get-RunbookState.ps1`
-- [ ] Store state in `%APPDATA%\runbook\state\`
+- [x] Implement `Save-RunbookState.ps1`
+- [x] Implement `Get-RunbookState.ps1`
+- [x] Implement `Clear-RunbookState.ps1`
+- [x] Store state in `%APPDATA%\runbook\state\`
 
 ---
 
 ## Phase 6: Error Handling
 
-- [ ] Implement prompt on failure
-- [ ] Skip, force continue, abort options
-- [ ] Handle Ctrl+C gracefully
+- [x] Implement prompt on failure
+- [x] Skip, force continue, abort options
+- [x] Handle Ctrl+C gracefully
 
 ---
 
