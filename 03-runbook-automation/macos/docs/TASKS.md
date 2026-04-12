@@ -20,20 +20,20 @@
 
 ## Phase 3: Step Execution
 
-- [ ] Implement `execute_step()` in `executor.py`
-- [ ] Execute shell commands
-- [ ] Capture output and exit code
-- [ ] Handle errors
+- [x] Implement `execute_step()` in `executor.py`
+- [x] Execute shell commands
+- [x] Capture output and exit code
+- [x] Handle errors
 
 ---
 
 ## Phase 4: Runbook Execution
 
-- [ ] Implement `execute_runbook()`
-- [ ] Execute steps in sequence
-- [ ] Handle `--dry-run` mode
-- [ ] Handle `--from-step` option
-- [ ] Handle `--resume` option
+- [x] Implement `execute_runbook()`
+- [x] Execute steps in sequence
+- [x] Handle `--dry-run` mode
+- [x] Handle `--from-step` option
+- [x] Handle `--resume` option
 
 ---
 
