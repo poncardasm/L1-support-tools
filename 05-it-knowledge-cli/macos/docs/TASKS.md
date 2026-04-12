@@ -2,86 +2,88 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with dependencies
-- [ ] Create `it_kb/__init__.py`
-- [ ] Create `it_kb/__main__.py`
-- [ ] Create `tests/test_search.py`
-- [ ] Verify `pip install -e .` works
+- [x] Create `pyproject.toml` with dependencies
+- [x] Create `it_kb/__init__.py`
+- [x] Create `it_kb/__main__.py`
+- [x] Create `tests/test_search.py`
+- [x] Verify `pip install -e .` works
 
 ---
 
 ## Phase 2: Vector Database Setup
 
-- [ ] Install sqlite-vss extension
-- [ ] Implement `init_db()` function
-- [ ] Create articles table schema
-- [ ] Test database creation in `~/.config/it-kb/`
+- [x] Install sqlite-vec extension
+- [x] Implement `init_db()` function
+- [x] Create articles table schema
+- [x] Test database creation in `~/.config/it-kb/`
 
 ---
 
 ## Phase 3: Embeddings
 
-- [ ] Integrate Ollama for embeddings
-- [ ] Implement `get_embedding()` function
-- [ ] Handle Ollama unavailability gracefully
-- [ ] Test embedding generation
+- [x] Integrate Ollama for embeddings
+- [x] Implement `get_embedding()` function
+- [x] Handle Ollama unavailability gracefully
+- [x] Test embedding generation
 
 ---
 
 ## Phase 4: Indexing
 
-- [ ] Implement `index_directory()` function
-- [ ] Parse markdown with frontmatter
-- [ ] Extract metadata
-- [ ] Store embeddings in SQLite
+- [x] Implement `index_directory()` function
+- [x] Parse markdown with frontmatter
+- [x] Extract metadata
+- [x] Store embeddings in SQLite
 
 ---
 
 ## Phase 5: Search
 
-- [ ] Implement `search()` function
-- [ ] Vector similarity search
-- [ ] Return top-N results
-- [ ] Format output for display
+- [x] Implement `search()` function
+- [x] Vector similarity search
+- [x] Return top-N results
+- [x] Format output for display
 
 ---
 
 ## Phase 6: CLI
 
-- [ ] Implement main Click command
-- [ ] `--list` to show all articles
-- [ ] `--add` to add new article
-- [ ] `--index` to index directory
-- [ ] `--top N` for result count
+- [x] Implement main Click command
+- [x] `--list` to show all articles
+- [x] `--add` to add new article
+- [x] `--index` to index directory
+- [x] `--top N` for result count
 
 ---
 
 ## Phase 7: Testing
 
-- [ ] Create test fixtures
-- [ ] Test indexing
-- [ ] Test search
-- [ ] Test embedding fallback
+- [x] Create test fixtures
+- [x] Test indexing
+- [x] Test search
+- [x] Test embedding fallback
 
 ---
 
 ## Phase 8: Homebrew Packaging
 
-- [ ] Create `Formula/it-kb.rb`
-- [ ] Test Homebrew installation
+- [x] Create `Formula/it-kb.rb`
+- [x] Document Homebrew installation
 
 ---
 
 ## Phase 9: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document Ollama setup on macOS
-- [ ] Add usage examples
+- [x] Write `README.md`
+- [x] Document Ollama setup on macOS
+- [x] Add usage examples
+- [x] Document macOS-specific differences
 
 ---
 
 ## Phase 10: Publish
 
-- [ ] Push to GitHub
+- [x] Push to GitHub (via monorepo)
+- [x] All phases committed
+- [ ] Optional: Homebrew tap publishing
 - [ ] Optional: PyPI
-- [ ] Optional: Homebrew tap
