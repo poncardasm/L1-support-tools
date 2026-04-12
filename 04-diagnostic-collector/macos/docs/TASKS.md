@@ -2,9 +2,9 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `collector.sh` main script
-- [ ] Create `diag/` Python module structure
-- [ ] Test basic script execution
+- [x] Create `collector.sh` main script
+- [x] Create `diag/` Python module structure
+- [x] Test basic script execution
 
 ---
 
