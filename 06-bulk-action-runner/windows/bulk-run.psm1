@@ -23,4 +23,6 @@ Export-ModuleMember -Function @(
     'Invoke-BulkEnableMailbox',
     'Invoke-BulkDeprovision',
     'Invoke-BulkAction'
+) -Alias @(
+    'bulk-run'
 )

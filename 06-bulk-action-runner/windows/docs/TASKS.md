@@ -2,43 +2,43 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create PowerShell module structure (`bulk-run.psd1`, `bulk-run.psm1`)
-- [ ] Create `public/` directory with empty function files
-- [ ] Create `private/` directory for helpers
-- [ ] Verify `Import-Module ./bulk-run.psd1` works
+- [x] Create PowerShell module structure (`bulk-run.psd1`, `bulk-run.psm1`)
+- [x] Create `public/` directory with empty function files
+- [x] Create `private/` directory for helpers
+- [x] Verify `Import-Module ./bulk-run.psd1` works
 
 ---
 
 ## Phase 2: CSV Parsing
 
-- [ ] Test `Import-Csv` with sample CSV files
-- [ ] Handle missing columns gracefully
-- [ ] Support both comma and semicolon delimiters
+- [x] Test `Import-Csv` with sample CSV files
+- [x] Handle missing columns gracefully
+- [x] Support both comma and semicolon delimiters
 
 ---
 
 ## Phase 3: Operations
 
-- [ ] Implement `Invoke-BulkPasswordReset`
-- [ ] Implement `Invoke-BulkAddGroup`
-- [ ] Implement `Invoke-BulkEnableMailbox`
-- [ ] Implement `Invoke-BulkDeprovision`
-- [ ] All commands support `-WhatIf`
+- [x] Implement `Invoke-BulkPasswordReset`
+- [x] Implement `Invoke-BulkAddGroup`
+- [x] Implement `Invoke-BulkEnableMailbox`
+- [x] Implement `Invoke-BulkDeprovision`
+- [x] All commands support `-WhatIf`
 
 ---
 
 ## Phase 4: Throttling
 
-- [ ] Implement `Start-Throttle` helper
-- [ ] Configure 500ms delay between rows
+- [x] Implement `Start-Throttle` helper
+- [x] Configure 500ms delay between rows
 - [ ] Test with 100-row CSV
 
 ---
 
 ## Phase 5: Reporting
 
-- [ ] Implement `--report` CSV output
-- [ ] Include all 5 columns: email, operation, result, detail, timestamp
+- [x] Implement `--report` CSV output
+- [x] Include all 5 columns: email, operation, result, detail, timestamp
 - [ ] Test report generation
 
 ---

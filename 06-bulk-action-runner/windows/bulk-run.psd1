@@ -14,6 +14,10 @@
         'Invoke-BulkAction'
     )
     
+    AliasesToExport = @(
+        'bulk-run'
+    )
+    
     PrivateData = @{
         PSData = @{
             Tags = @('AzureAD', 'EntraID', 'Bulk', 'CSV', 'Support')
