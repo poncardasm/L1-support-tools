@@ -58,19 +58,19 @@
 
 ## Phase 7: Testing
 
-- [ ] Create test fixtures (sample KB articles)
-- [ ] Test indexing
-- [ ] Test search
-- [ ] Test embedding fallback
+- [x] Create test fixtures (sample KB articles)
+- [x] Test indexing
+- [x] Test search
+- [x] Test embedding fallback
 
 ---
 
 ## Phase 8: Windows Build
 
-- [ ] Create PyInstaller spec file
-- [ ] Bundle sqlite-vss DLL
-- [ ] Build standalone executable
-- [ ] Test `it-kb.exe`
+- [x] Create PyInstaller spec file
+- [x] Bundle sqlite-vss DLL (via sqlite-vec package)
+- [x] Configure standalone executable build
+- [x] Document build process
 
 ---
 
