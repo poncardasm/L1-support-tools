@@ -26,7 +26,7 @@ Import-Module .\runbook.psd1
 
 Create a Markdown file with PowerShell code blocks:
 
-```markdown
+````markdown
 # Restart IIS Application Pool
 
 ## Steps
@@ -35,8 +35,10 @@ Create a Markdown file with PowerShell code blocks:
    ```powershell
    Get-IISAppPool -Name "DefaultAppPool"
    ```
+````
 
 2. Stop the application pool
+
    ```powershell
    Stop-IISAppPool -Name "DefaultAppPool"
    ```
@@ -45,7 +47,8 @@ Create a Markdown file with PowerShell code blocks:
    ```powershell
    Start-IISAppPool -Name "DefaultAppPool"
    ```
-```
+
+````
 
 ### 2. Execute the Runbook
 
@@ -55,7 +58,7 @@ Invoke-Runbook -FilePath 'runbooks\iis\restart-apppool.md'
 
 # Or use the alias
 runbook 'runbooks\iis\restart-apppool.md'
-```
+````
 
 ## Features
 
@@ -111,7 +114,7 @@ Clear-RunbookState -FilePath 'runbooks\restart-service.md'
 
 Runbooks are standard Markdown files with PowerShell code blocks:
 
-```markdown
+````markdown
 # Title of the Runbook
 
 Brief description of what this runbook does.
@@ -122,6 +125,7 @@ Brief description of what this runbook does.
    ```powershell
    Write-Host "Step 1"
    ```
+````
 
 2. Second step description
    ```powershell
@@ -131,7 +135,8 @@ Brief description of what this runbook does.
 ## Verification
 
 Optional verification steps.
-```
+
+````
 
 ### Step Syntax
 
@@ -146,16 +151,19 @@ Other code blocks (Python, YAML, etc.) are ignored during execution.
 
 When a step fails, the tool stops and prompts for action:
 
-```
+````
+
 [!] Step 3 failed with exit code 1
 Error: Something went wrong
 
 [DID NOT EXPECT THIS] Stopping. Options:
-  [s] Skip this step and continue
-  [f] Force continue (ignore failures)
-  [a] Abort execution
+[s] Skip this step and continue
+[f] Force continue (ignore failures)
+[a] Abort execution
+
 >
-```
+
+````
 
 Options:
 - **s** - Skip this step and continue with the next
@@ -173,7 +181,7 @@ Execution state is automatically saved to `%APPDATA%\runbook\state\<runbook-name
   "last_run": "2025-01-20T10:30:00",
   "success": false
 }
-```
+````
 
 This allows you to resume from where you left off using `-Resume`.
 
