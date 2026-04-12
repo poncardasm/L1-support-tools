@@ -45,24 +45,24 @@
 
 ## Phase 6: Testing
 
-- [ ] Create `tests/test_operations.py`
-- [ ] Create test fixture CSV files
-- [ ] Test `--dry-run` mode
+- [x] Create `tests/test_operations.py`
+- [x] Create test fixture CSV files
+- [x] Test `--dry-run` mode
 
 ---
 
 ## Phase 7: Homebrew Packaging
 
-- [ ] Create `Formula/bulk-run.rb`
+- [x] Create `Formula/bulk-run.rb`
 - [ ] Test Homebrew installation
 
 ---
 
 ## Phase 8: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document CSV format
-- [ ] Add troubleshooting section
+- [x] Write `README.md`
+- [x] Document CSV format
+- [x] Add troubleshooting section
 
 ---
 
