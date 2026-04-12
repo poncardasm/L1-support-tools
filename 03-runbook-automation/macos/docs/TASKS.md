@@ -54,9 +54,9 @@
 
 ## Phase 7: Runbook Index
 
-- [ ] Implement `list_runbooks()`
-- [ ] Implement `search_runbooks()`
-- [ ] Support category filtering
+- [x] Implement `list_runbooks()`
+- [x] Implement `search_runbooks()`
+- [x] Support category filtering
 
 ---
 
