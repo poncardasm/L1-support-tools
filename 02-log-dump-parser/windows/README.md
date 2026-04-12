@@ -1,75 +1,86 @@
-# log-parse (Windows)
+# Log Dump Parser (Windows)
 
-Windows-specific implementation of the log-parse CLI tool.
+CLI tool for parsing and analyzing Windows log files (.evtx, IIS, JSON, plain text).
 
-> **Status:** Planned - Not yet implemented
-
-## Platform-Specific Features (Planned)
-
-### Windows Event Logs
-
-Parse Windows Event Log exports:
-
-```powershell
-# Export Event Logs to JSON (planned)
-Get-WinEvent -FilterHashtable @{LogName='Application'; Level=1,2,3} | 
-    Export-Clixml events.xml
-log-parse events.xml
-```
-
-### IIS Logs
-
-```powershell
-log-parse "C:\inetpub\logs\LogFiles\W3SVC1\u_ex240101.log"
-```
-
-### Windows Update Logs
-
-```powershell
-log-parse "C:\Windows\Logs\WindowsUpdate\WindowsUpdate.log"
-```
-
-## Installation (Planned)
-
-### Chocolatey
-
-```powershell
-choco install log-parse
-```
-
-### Winget
-
-```powershell
-winget install log-parse
-```
-
-### From Source
+## Installation
 
 ```powershell
 cd 02-log-dump-parser\windows
 python -m venv .venv
 .venv\Scripts\activate
-pip install -e ".[dev]"
+pip install -e .
 ```
 
-## Windows-Specific Log Sources
+## Usage
 
-| Source | Path | Format | Status |
-|--------|------|--------|--------|
-| Application Event Log | `Get-WinEvent` | EVTX | Planned |
-| System Event Log | `Get-WinEvent` | EVTX | Planned |
-| IIS Logs | `C:\inetpub\logs\` | W3C | Planned |
-| Windows Update | `C:\Windows\Logs\` | plain | Planned |
-| Setup Logs | `C:\$Windows.~BT\Sources\Panther\` | plain | Planned |
+```powershell
+# Parse a Windows Event Log
+log-parse C:\Windows\System32\winevt\Logs\Application.evtx
 
-## Differences from macOS Version
+# Parse with filters
+log-parse --level ERROR,WARN application.evtx
+log-parse --since "2024-01-01" --until "2024-03-01" app.log
+log-parse --grep "connection refused" error.log
+log-parse --source "IIS" iis.log
 
-The Windows version will include:
+# Parse from stdin
+Get-Content log.txt | log-parse -
 
-- EVTX (Windows Event Log) parser
-- Windows-optimized path handling
-- PowerShell pipeline support
-- Windows-specific error pattern detection
+# Output as JSON
+log-parse --json app.log > results.json
+
+# Output as CSV
+log-parse --csv app.log > results.csv
+```
+
+## Supported Formats
+
+- **Windows Event Log (.evtx)** - Binary Windows event logs
+- **Windows Event XML** - Exported event log XML format
+- **JSON Lines** - One JSON object per line
+- **IIS Logs** - IIS W3C log format
+- **Syslog** - RFC 3164/5424 format
+- **Plain text** - Best-effort detection
+
+## Filters
+
+- `--level ERROR,WARN` - Filter by severity level
+- `--since "YYYY-MM-DD"` - Start date filter
+- `--until "YYYY-MM-DD"` - End date filter
+- `--source "ProcessName"` - Filter by source
+- `--grep "pattern"` - Search within messages
+- `--top N` - Show top N patterns (default 10)
+
+## Output Formats
+
+- **Text (default)** - Human-readable summary with grouped errors/warnings
+- **JSON (`--json`)** - Structured JSON for pipelines
+- **CSV (`--csv`)** - Flat CSV for Excel import
+
+## Examples
+
+### View errors in system log
+```powershell
+log-parse --level ERROR C:\Logs\system.evtx
+```
+
+### Export to CSV for Excel analysis
+```powershell
+log-parse --csv C:\Logs\iis.log > analysis.csv
+```
+
+### Find authentication failures
+```powershell
+log-parse --grep "authentication fail" C:\Logs\Security.evtx
+```
+
+## Building Standalone Executable
+
+```powershell
+pip install pyinstaller
+pyinstaller log-parse.spec
+# Output: dist/log-parse.exe
+```
 
 ## Configuration
 

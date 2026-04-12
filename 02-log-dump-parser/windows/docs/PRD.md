@@ -105,12 +105,12 @@ log-dump-parser/
 
 ## 4. Success Criteria
 
-- [ ] Auto-detects Windows Event Log, JSON Lines, IIS formats
-- [ ] Groups duplicate errors into frequency counts
-- [ ] `--level`, `--since`, `--until`, `--source` filters work
-- [ ] `--json` and `--csv` output valid formats
-- [ ] 10k event log entries processed in < 5 seconds
-- [ ] Graceful handling of corrupted event logs (skip + warn)
+- [x] Auto-detects Windows Event Log, JSON Lines, IIS formats
+- [x] Groups duplicate errors into frequency counts
+- [x] `--level`, `--since`, `--until`, `--source` filters work
+- [x] `--json` and `--csv` output valid formats
+- [x] 10k event log entries processed in < 5 seconds
+- [x] Graceful handling of corrupted event logs (skip + warn)
 
 ## 5. Out of Scope (v1)
 

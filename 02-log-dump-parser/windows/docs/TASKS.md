@@ -2,80 +2,81 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with dependencies (click, python-evtx)
-- [ ] Create `log_parse/__init__.py`
-- [ ] Create `log_parse/__main__.py`
-- [ ] Verify `pip install -e .` works
+- [x] Create `pyproject.toml` with dependencies (click, python-evtx)
+- [x] Create `log_parse/__init__.py`
+- [x] Create `log_parse/__main__.py`
+- [x] Verify `pip install -e .` works
 
 ---
 
 ## Phase 2: Format Detection
 
-- [ ] Implement file format detection
-- [ ] Detect Windows Event Log (.evtx)
-- [ ] Detect Windows Event XML
-- [ ] Detect JSON Lines
-- [ ] Detect IIS log format
-- [ ] Fallback to plain text
+- [x] Implement file format detection
+- [x] Detect Windows Event Log (.evtx)
+- [x] Detect Windows Event XML
+- [x] Detect JSON Lines
+- [x] Detect IIS log format
+- [x] Fallback to plain text
 
 ---
 
 ## Phase 3: Parsers
 
-- [ ] Implement EVTX parser (python-evtx)
-- [ ] Implement JSON Lines parser
-- [ ] Implement IIS log parser
-- [ ] Implement plain text parser
+- [x] Implement EVTX parser (python-evtx)
+- [x] Implement JSON Lines parser
+- [x] Implement IIS log parser
+- [x] Implement plain text parser
+- [x] Implement syslog parser
 
 ---
 
 ## Phase 4: Analysis
 
-- [ ] Implement error/warning grouping
-- [ ] Implement message normalization
-- [ ] Implement frequency counting
-- [ ] Implement statistics calculation
+- [x] Implement error/warning grouping
+- [x] Implement message normalization
+- [x] Implement frequency counting
+- [x] Implement statistics calculation
 
 ---
 
 ## Phase 5: Filters
 
-- [ ] Implement `--level` filter
-- [ ] Implement `--since` time filter
-- [ ] Implement `--until` time filter
-- [ ] Implement `--source` filter
-- [ ] Implement `--grep` search
+- [x] Implement `--level` filter
+- [x] Implement `--since` time filter
+- [x] Implement `--until` time filter
+- [x] Implement `--source` filter
+- [x] Implement `--grep` search
 
 ---
 
 ## Phase 6: Output Formats
 
-- [ ] Implement text output
-- [ ] Implement JSON output
-- [ ] Implement CSV output
+- [x] Implement text output
+- [x] Implement JSON output
+- [x] Implement CSV output
 
 ---
 
 ## Phase 7: CLI
 
-- [ ] Implement main Click command
-- [ ] Implement all options
-- [ ] Test stdin input
+- [x] Implement main Click command
+- [x] Implement all options
+- [x] Test stdin input
 
 ---
 
 ## Phase 8: Testing
 
-- [ ] Create test fixtures (sample EVTX, JSON)
-- [ ] Test format detection
-- [ ] Test parsing
-- [ ] Test analysis
+- [x] Create test fixtures (sample EVTX, JSON)
+- [x] Test format detection
+- [x] Test parsing
+- [x] Test analysis
 
 ---
 
 ## Phase 9: Windows Build
 
-- [ ] Create PyInstaller spec
+- [x] Create PyInstaller spec
 - [ ] Build standalone executable
 - [ ] Test `log-parse.exe`
 
@@ -83,6 +84,6 @@
 
 ## Phase 10: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document Windows-specific log formats
-- [ ] Add usage examples
+- [x] Write `README.md`
+- [x] Document Windows-specific log formats
+- [x] Add usage examples
