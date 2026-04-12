@@ -2,11 +2,11 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create PowerShell module structure (`runbook.psd1`, `runbook.psm1`)
-- [ ] Create `public/` directory
-- [ ] Create `private/` directory
-- [ ] Create `runbooks/` directory
-- [ ] Verify `Import-Module ./runbook.psd1` works
+- [x] Create PowerShell module structure (`runbook.psd1`, `runbook.psm1`)
+- [x] Create `public/` directory
+- [x] Create `private/` directory
+- [x] Create `runbooks/` directory
+- [x] Verify `Import-Module ./runbook.psd1` works
 
 ---
 
