@@ -56,9 +56,9 @@
 
 ## Phase 7: Runbook Index
 
-- [ ] Implement `Get-RunbookList.ps1`
-- [ ] Implement `Search-Runbook.ps1`
-- [ ] Support category filtering
+- [x] Implement `Get-RunbookList.ps1`
+- [x] Implement `Search-Runbook.ps1`
+- [x] Support category filtering
 
 ---
 
