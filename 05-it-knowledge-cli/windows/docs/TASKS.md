@@ -12,47 +12,47 @@
 
 ## Phase 2: Vector Database Setup
 
-- [ ] Configure sqlite-vss extension for Windows
-- [ ] Implement `init_db()` function
-- [ ] Create articles table schema
-- [ ] Test database creation in `%APPDATA%\it-kb\`
+- [x] Configure sqlite-vss extension for Windows
+- [x] Implement `init_db()` function
+- [x] Create articles table schema
+- [x] Test database creation in `%APPDATA%\it-kb\`
 
 ---
 
 ## Phase 3: Embeddings
 
-- [ ] Integrate Ollama for embeddings
-- [ ] Implement `get_embedding()` function
-- [ ] Handle Ollama unavailability gracefully
-- [ ] Test embedding generation
+- [x] Integrate Ollama for embeddings
+- [x] Implement `get_embedding()` function
+- [x] Handle Ollama unavailability gracefully
+- [x] Test embedding generation
 
 ---
 
 ## Phase 4: Indexing
 
-- [ ] Implement `index_directory()` function
-- [ ] Parse markdown with frontmatter
-- [ ] Extract metadata (id, title, category, last_updated)
-- [ ] Store embeddings in SQLite
+- [x] Implement `index_directory()` function
+- [x] Parse markdown with frontmatter
+- [x] Extract metadata (id, title, category, last_updated)
+- [x] Store embeddings in SQLite
 
 ---
 
 ## Phase 5: Search
 
-- [ ] Implement `search()` function
-- [ ] Vector similarity search
-- [ ] Return top-N results
-- [ ] Format output for display
+- [x] Implement `search()` function
+- [x] Vector similarity search
+- [x] Return top-N results
+- [x] Format output for display
 
 ---
 
 ## Phase 6: CLI
 
-- [ ] Implement main Click command
-- [ ] `--list` to show all articles
-- [ ] `--add` to add new article
-- [ ] `--index` to index directory
-- [ ] `--top N` for result count
+- [x] Implement main Click command
+- [x] `--list` to show all articles
+- [x] `--add` to add new article
+- [x] `--index` to index directory
+- [x] `--top N` for result count
 
 ---
 
