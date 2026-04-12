@@ -104,15 +104,16 @@ echo "VPN connection down" | ticket-triage --json
 
 ## Exit Codes
 
-| Code | Meaning |
-|------|---------|
-| 0 | Triage complete |
-| 1 | Parse error / no input |
-| 2 | L2 escalation recommended |
+| Code | Meaning                   |
+| ---- | ------------------------- |
+| 0    | Triage complete           |
+| 1    | Parse error / no input    |
+| 2    | L2 escalation recommended |
 
 ### Script Examples
 
 **Bash:**
+
 ```bash
 if ticket-triage --file ticket.txt; then
     handle_l1
@@ -122,6 +123,7 @@ fi
 ```
 
 **PowerShell:**
+
 ```powershell
 $triage = ticket-triage --file ticket.txt
 if ($LASTEXITCODE -eq 2) {
@@ -134,9 +136,11 @@ if ($LASTEXITCODE -eq 2) {
 ## Configuration
 
 ### macOS
+
 Create `~/.config/ticket-triage/rules.yaml` to override default keywords and actions.
 
 ### Windows
+
 Create `%APPDATA%\ticket-triage\rules.yaml` to override default rules.
 
 ## Platform-Specific Documentation

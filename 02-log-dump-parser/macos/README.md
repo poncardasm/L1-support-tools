@@ -61,12 +61,12 @@ log-parse tests/fixtures/json_lines.log --json
 
 ## macOS-Specific Log Sources
 
-| Source | Path | Format |
-|--------|------|--------|
-| System log | `/var/log/system.log` | syslog |
-| Install log | `/var/log/install.log` | plain |
-| Diagnostic reports | `~/Library/Logs/DiagnosticReports/` | plain |
-| Docker Desktop | `~/Library/Containers/com.docker.docker/Data/log/` | json |
+| Source             | Path                                               | Format |
+| ------------------ | -------------------------------------------------- | ------ |
+| System log         | `/var/log/system.log`                              | syslog |
+| Install log        | `/var/log/install.log`                             | plain  |
+| Diagnostic reports | `~/Library/Logs/DiagnosticReports/`                | plain  |
+| Docker Desktop     | `~/Library/Containers/com.docker.docker/Data/log/` | json   |
 
 ## Configuration
 

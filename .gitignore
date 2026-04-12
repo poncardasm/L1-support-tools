@@ -228,3 +228,4 @@ env/
 *.launch
 .settings/
 *.sublime-workspace
+.firecrawl/
