@@ -81,24 +81,24 @@
 
 ## Phase 10: Homebrew Packaging
 
-- [ ] Create `Formula/runbook.rb`
+- [x] Create `Formula/runbook.rb`
 - [ ] Test Homebrew installation
 
 ---
 
 ## Phase 11: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document runbook format
-- [ ] Add bash/zsh-specific examples
+- [x] Write `README.md`
+- [x] Document runbook format
+- [x] Add bash/zsh-specific examples
 
 ---
 
 ## Phase 12: Sample Runbooks
 
-- [ ] Create sample runbooks for common macOS tasks
-- [ ] Service restart (brew services)
-- [ ] Log clearing
+- [x] Create sample runbooks for common macOS tasks
+- [x] Service restart (brew services)
+- [x] Log clearing
 
 ---
 
