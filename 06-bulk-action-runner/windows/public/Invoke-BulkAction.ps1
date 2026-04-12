@@ -21,9 +21,6 @@
 .PARAMETER ReportPath
     Path to save a CSV report of results.
 
-.PARAMETER WhatIf
-    Shows what would happen without making actual changes (dry-run).
-
 .EXAMPLE
     bulk-run password-reset users.csv
     bulk-run add-group users.csv -Group "IT-All"
@@ -50,9 +47,7 @@ function Invoke-BulkAction {
         
         [Parameter()]
         [Alias('Report')]
-        [string]$ReportPath,
-        
-        [switch]$WhatIf
+        [string]$ReportPath
     )
     
     # Validate parameters based on operation
@@ -76,22 +71,22 @@ function Invoke-BulkAction {
     Write-Host "CSV: $($resolvedPath.Path)" -ForegroundColor Cyan
     if ($Group) { Write-Host "Group: $Group" -ForegroundColor Cyan }
     if ($Reason) { Write-Host "Reason: $Reason" -ForegroundColor Cyan }
-    if ($WhatIf) { Write-Host "Mode: Dry-run (WhatIf)" -ForegroundColor Yellow }
+    if ($WhatIfPreference) { Write-Host "Mode: Dry-run (WhatIf)" -ForegroundColor Yellow }
     Write-Host ""
     
     # Route to appropriate function
     switch ($Operation) {
         'password-reset' {
-            return Invoke-BulkPasswordReset -CsvPath $resolvedPath.Path -ReportPath $ReportPath -WhatIf:$WhatIf
+            return Invoke-BulkPasswordReset -CsvPath $resolvedPath.Path -ReportPath $ReportPath
         }
         'add-group' {
-            return Invoke-BulkAddGroup -CsvPath $resolvedPath.Path -Group $Group -ReportPath $ReportPath -WhatIf:$WhatIf
+            return Invoke-BulkAddGroup -CsvPath $resolvedPath.Path -Group $Group -ReportPath $ReportPath
         }
         'enable-mailbox' {
-            return Invoke-BulkEnableMailbox -CsvPath $resolvedPath.Path -ReportPath $ReportPath -WhatIf:$WhatIf
+            return Invoke-BulkEnableMailbox -CsvPath $resolvedPath.Path -ReportPath $ReportPath
         }
         'deprovision' {
-            return Invoke-BulkDeprovision -CsvPath $resolvedPath.Path -Reason $Reason -ReportPath $ReportPath -WhatIf:$WhatIf
+            return Invoke-BulkDeprovision -CsvPath $resolvedPath.Path -Reason $Reason -ReportPath $ReportPath
         }
     }
 }

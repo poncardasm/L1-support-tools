@@ -45,9 +45,9 @@
 
 ## Phase 6: Testing
 
-- [ ] Create Pester test suite
-- [ ] Create test fixture CSV files
-- [ ] Test `-WhatIf` mode for all operations
+- [x] Create Pester test suite
+- [x] Create test fixture CSV files
+- [x] Test `-WhatIf` mode for all operations
 
 ---
 

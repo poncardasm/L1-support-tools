@@ -29,24 +29,24 @@ function Read-BulkCsv {
         throw "CSV file not found: $CsvPath"
     }
     
-    # Try comma delimiter first, then semicolon
-    $users = $null
-    $delimiters = @(',', ';')
+    # Read the first line to detect delimiter
+    $firstLine = Get-Content -Path $CsvPath -TotalCount 1
     
-    foreach ($delimiter in $delimiters) {
-        try {
-            $users = Import-Csv -Path $CsvPath -Delimiter $delimiter -ErrorAction Stop
-            if ($users -and $users.Count -gt 0) {
-                break
-            }
-        }
-        catch {
-            continue
-        }
+    # Determine delimiter based on first line
+    $delimiter = ','
+    if ($firstLine -match ';' -and $firstLine -notmatch ',') {
+        $delimiter = ';'
+    }
+    
+    try {
+        $users = Import-Csv -Path $CsvPath -Delimiter $delimiter -ErrorAction Stop
+    }
+    catch {
+        throw "Failed to parse CSV file: $CsvPath - $($_.Exception.Message)"
     }
     
     if (-not $users) {
-        throw "Failed to parse CSV file: $CsvPath"
+        throw "CSV file is empty: $CsvPath"
     }
     
     # Validate required columns

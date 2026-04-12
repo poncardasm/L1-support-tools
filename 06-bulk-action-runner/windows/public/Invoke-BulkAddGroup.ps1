@@ -14,9 +14,6 @@
 .PARAMETER ReportPath
     Optional path to save a CSV report of results.
 
-.PARAMETER WhatIf
-    Shows what would happen without making actual changes.
-
 .EXAMPLE
     Invoke-BulkAddGroup -CsvPath users.csv -Group "IT-All"
     
@@ -32,9 +29,7 @@ function Invoke-BulkAddGroup {
         [string]$Group,
         
         [Parameter(Position = 2)]
-        [string]$ReportPath,
-        
-        [switch]$WhatIf
+        [string]$ReportPath
     )
     
     begin {
@@ -42,7 +37,7 @@ function Invoke-BulkAddGroup {
         $results = [System.Collections.ArrayList]::new()
         $operation = 'add-group'
         
-        if (-not $WhatIf) {
+        if (-not $WhatIfPreference) {
             Connect-GraphSession
             
             # Resolve group name to ID
@@ -50,8 +45,8 @@ function Invoke-BulkAddGroup {
             if (-not $groupObj) {
                 throw "Group not found: $Group"
             }
-            $groupId = $groupObj.Id
-            Write-BulkOutput -Type OK -Message "Resolved group '$Group' to ID: $groupId"
+            $script:groupId = $groupObj.Id
+            Write-BulkOutput -Type OK -Message "Resolved group '$Group' to ID: $script:groupId"
         }
         
         Write-BulkOutput -Type OK -Message "Processing $($users.Count) users to add to group '$Group'..."
@@ -61,7 +56,7 @@ function Invoke-BulkAddGroup {
         foreach ($user in $users) {
             $email = $user.email
             
-            if ($WhatIf) {
+            if ($WhatIfPreference) {
                 Write-BulkOutput -Type OK -Message "$email — would add to $Group"
                 $results.Add([PSCustomObject]@{
                     email = $email
@@ -81,7 +76,7 @@ function Invoke-BulkAddGroup {
                 }
                 
                 # Check if user is already in group
-                $existingMember = Get-MgGroupMember -GroupId $groupId -ErrorAction SilentlyContinue | 
+                $existingMember = Get-MgGroupMember -GroupId $script:groupId -ErrorAction SilentlyContinue | 
                     Where-Object { $_.Id -eq $userObj.Id }
                 
                 if ($existingMember) {
@@ -101,7 +96,7 @@ function Invoke-BulkAddGroup {
                 $body = @{
                     "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/$($userObj.Id)"
                 }
-                New-MgGroupMember -GroupId $groupId -BodyParameter $body -ErrorAction Stop
+                New-MgGroupMember -GroupId $script:groupId -BodyParameter $body -ErrorAction Stop
                 
                 Write-BulkOutput -Type OK -Message "$email — added to $Group"
                 $results.Add([PSCustomObject]@{

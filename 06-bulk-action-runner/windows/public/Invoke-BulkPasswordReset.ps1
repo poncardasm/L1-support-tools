@@ -12,9 +12,6 @@
 .PARAMETER ReportPath
     Optional path to save a CSV report of results.
 
-.PARAMETER WhatIf
-    Shows what would happen without making actual changes.
-
 .EXAMPLE
     Invoke-BulkPasswordReset -CsvPath users.csv
     
@@ -27,9 +24,7 @@ function Invoke-BulkPasswordReset {
         [string]$CsvPath,
         
         [Parameter(Position = 1)]
-        [string]$ReportPath,
-        
-        [switch]$WhatIf
+        [string]$ReportPath
     )
     
     begin {
@@ -37,7 +32,7 @@ function Invoke-BulkPasswordReset {
         $results = [System.Collections.ArrayList]::new()
         $operation = 'password-reset'
         
-        if (-not $WhatIf) {
+        if (-not $WhatIfPreference) {
             Connect-GraphSession
         }
         
@@ -49,7 +44,7 @@ function Invoke-BulkPasswordReset {
             $email = $user.email
             $tempPassword = New-TemporaryPassword
             
-            if ($WhatIf) {
+            if ($WhatIfPreference) {
                 Write-BulkOutput -Type OK -Message "$email — would reset password"
                 $results.Add([PSCustomObject]@{
                     email = $email

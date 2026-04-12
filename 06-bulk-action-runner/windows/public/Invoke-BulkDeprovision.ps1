@@ -15,9 +15,6 @@
 .PARAMETER ReportPath
     Optional path to save a CSV report of results.
 
-.PARAMETER WhatIf
-    Shows what would happen without making actual changes.
-
 .EXAMPLE
     Invoke-BulkDeprovision -CsvPath users.csv -Reason "terminated"
     
@@ -33,9 +30,7 @@ function Invoke-BulkDeprovision {
         [string]$Reason = 'deprovisioned',
         
         [Parameter(Position = 2)]
-        [string]$ReportPath,
-        
-        [switch]$WhatIf
+        [string]$ReportPath
     )
     
     begin {
@@ -43,7 +38,7 @@ function Invoke-BulkDeprovision {
         $results = [System.Collections.ArrayList]::new()
         $operation = 'deprovision'
         
-        if (-not $WhatIf) {
+        if (-not $WhatIfPreference) {
             Connect-GraphSession
         }
         
@@ -54,7 +49,7 @@ function Invoke-BulkDeprovision {
         foreach ($user in $users) {
             $email = $user.email
             
-            if ($WhatIf) {
+            if ($WhatIfPreference) {
                 Write-BulkOutput -Type OK -Message "$email — would deprovision (reason: $Reason)"
                 $results.Add([PSCustomObject]@{
                     email = $email

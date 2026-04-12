@@ -11,9 +11,6 @@
 .PARAMETER ReportPath
     Optional path to save a CSV report of results.
 
-.PARAMETER WhatIf
-    Shows what would happen without making actual changes.
-
 .EXAMPLE
     Invoke-BulkEnableMailbox -CsvPath users.csv
     
@@ -26,9 +23,7 @@ function Invoke-BulkEnableMailbox {
         [string]$CsvPath,
         
         [Parameter(Position = 1)]
-        [string]$ReportPath,
-        
-        [switch]$WhatIf
+        [string]$ReportPath
     )
     
     begin {
@@ -36,7 +31,7 @@ function Invoke-BulkEnableMailbox {
         $results = [System.Collections.ArrayList]::new()
         $operation = 'enable-mailbox'
         
-        if (-not $WhatIf) {
+        if (-not $WhatIfPreference) {
             Connect-GraphSession -Scopes @(
                 'User.ReadWrite.All',
                 'Exchange.ManageAsApp',
@@ -51,7 +46,7 @@ function Invoke-BulkEnableMailbox {
         foreach ($user in $users) {
             $email = $user.email
             
-            if ($WhatIf) {
+            if ($WhatIfPreference) {
                 Write-BulkOutput -Type OK -Message "$email — would enable mailbox"
                 $results.Add([PSCustomObject]@{
                     email = $email
