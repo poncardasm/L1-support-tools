@@ -64,28 +64,28 @@
 
 ## Phase 8: Testing
 
-- [ ] Create Pester test suite
-- [ ] Create sample runbook fixtures
-- [ ] Test parsing
-- [ ] Test execution
-- [ ] Test state management
+- [x] Create Pester test suite
+- [x] Create sample runbook fixtures
+- [x] Test parsing
+- [x] Test execution
+- [x] Test state management
 
 ---
 
 ## Phase 9: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document runbook format
-- [ ] Add PowerShell-specific examples
+- [x] Write `README.md`
+- [x] Document runbook format
+- [x] Add PowerShell-specific examples
 
 ---
 
 ## Phase 10: Sample Runbooks
 
-- [ ] Create sample runbooks for common Windows tasks
-- [ ] IIS restart
-- [ ] Service restart
-- [ ] Event log clearing
+- [x] Create sample runbooks for common Windows tasks
+- [x] IIS restart
+- [x] Service restart
+- [x] Event log clearing
 
 ---
 
