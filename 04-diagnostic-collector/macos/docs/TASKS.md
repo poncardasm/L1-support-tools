@@ -55,20 +55,20 @@
 
 ## Phase 7: Homebrew Packaging
 
-- [ ] Create `Formula/diag-collect.rb`
-- [ ] Test Homebrew installation
+- [x] Create `Formula/diag-collect.rb`
+- [x] Test Homebrew installation
 
 ---
 
 ## Phase 8: Distribution
 
-- [ ] Host script for `curl | bash`
-- [ ] Push to GitHub
+- [x] Host script for `curl | bash` (collector.sh supports this)
+- [x] Push to GitHub
 
 ---
 
 ## Phase 9: Documentation
 
-- [ ] Write `README.md`
-- [ ] Document all collected data
-- [ ] Add usage examples
+- [x] Write `README.md`
+- [x] Document all collected data
+- [x] Add usage examples
