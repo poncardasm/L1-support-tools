@@ -2,11 +2,11 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with dependencies
-- [ ] Create `it_kb/__init__.py`
-- [ ] Create `it_kb/__main__.py`
-- [ ] Create `tests/test_search.py`
-- [ ] Verify `pip install -e .` works
+- [x] Create `pyproject.toml` with dependencies
+- [x] Create `it_kb/__init__.py`
+- [x] Create `it_kb/__main__.py`
+- [x] Create `tests/test_search.py`
+- [x] Verify `pip install -e .` works
 
 ---
 
