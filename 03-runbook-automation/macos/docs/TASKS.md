@@ -62,19 +62,20 @@
 
 ## Phase 8: CLI
 
-- [ ] Implement `run` command
-- [ ] Implement `list` command
-- [ ] Implement `search` command
+- [x] Implement `run` command
+- [x] Implement `list` command
+- [x] Implement `search` command
+- [x] Implement `status` command
 
 ---
 
 ## Phase 9: Testing
 
-- [ ] Create test suite
-- [ ] Create sample runbook fixtures
-- [ ] Test parsing
-- [ ] Test execution
-- [ ] Test state management
+- [x] Create test suite
+- [x] Create sample runbook fixtures
+- [x] Test parsing
+- [x] Test execution
+- [x] Test state management
 
 ---
 
