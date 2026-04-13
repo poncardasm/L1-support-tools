@@ -38,31 +38,74 @@ This repository contains platform-specific implementations of 7 specialized CLI 
 ```
 L1-support-tools/
 ├── 01-ticket-triage-cli/
-│   ├── macos/docs/      # PRD.md, IMPLEMENTATION.md, TASKS.md
-│   └── windows/docs/    # PRD.md, IMPLEMENTATION.md, TASKS.md
+│   ├── macos/             # Python implementation
+│   │   ├── ticket_triage/
+│   │   ├── tests/
+│   │   └── Formula/
+│   └── windows/           # Python implementation
+│       ├── ticket_triage/
+│       ├── tests/
+│       └── Formula/
 ├── 02-log-dump-parser/
-│   ├── macos/docs/
-│   └── windows/docs/
+│   ├── macos/             # Python implementation
+│   │   ├── src/log_parse/
+│   │   ├── tests/
+│   │   └── Formula/
+│   └── windows/           # Python implementation
+│       ├── src/log_parse/
+│       ├── tests/
+│       └── Formula/
 ├── 03-runbook-automation/
-│   ├── macos/docs/
-│   └── windows/docs/
+│   ├── macos/             # Python implementation
+│   │   ├── runbook/
+│   │   ├── runbooks/
+│   │   └── Formula/
+│   └── windows/           # PowerShell implementation
+│       ├── public/
+│       ├── private/
+│       └── runbooks/
 ├── 04-diagnostic-collector/
-│   ├── macos/docs/
-│   └── windows/docs/
+│   ├── macos/             # Python implementation
+│   │   ├── diag/
+│   │   ├── tests/
+│   │   └── Formula/
+│   └── windows/           # PowerShell implementation
+│       ├── formatters/
+│       ├── modules/
+│       └── tests/
 ├── 05-it-knowledge-cli/
-│   ├── macos/docs/
-│   └── windows/docs/
+│   ├── macos/             # Python implementation
+│   │   ├── it_kb/
+│   │   ├── kb/
+│   │   ├── tests/
+│   │   └── Formula/
+│   └── windows/           # Python implementation
+│       ├── it_kb/
+│       ├── kb/
+│       └── build/
 ├── 06-bulk-action-runner/
-│   ├── macos/docs/
-│   └── windows/docs/
+│   ├── macos/             # Python implementation
+│   │   ├── bulk_runner/
+│   │   ├── tests/
+│   │   └── Formula/
+│   └── windows/           # PowerShell implementation
+│       ├── public/
+│       ├── private/
+│       └── tests/
 ├── 07-ad-provisioning-cli/
-│   ├── macos/docs/
-│   └── windows/docs/
-├── README.md            # This file
-└── AGENTS.md            # Development guidelines
+│   ├── macos/             # Python implementation
+│   │   ├── ad_provision/
+│   │   ├── tests/
+│   │   └── Formula/
+│   └── windows/           # PowerShell implementation
+│       ├── public/
+│       ├── private/
+│       └── config/
+├── README.md              # This file
+└── AGENTS.md              # Development guidelines
 ```
 
-Each tool directory contains platform-specific documentation:
+Each tool directory contains platform-specific documentation in `docs/` subdirectories:
 
 - `PRD.md` — Product requirements and functional spec
 - `IMPLEMENTATION.md` — Technical implementation plan
@@ -70,9 +113,14 @@ Each tool directory contains platform-specific documentation:
 
 ## Current State
 
-**Status:** Planning phase — documentation complete, implementation pending.
+**Status:** Implementation complete — all 7 tools now have working implementations for both macOS and Windows platforms.
 
-All 7 tools have complete PRDs and implementation plans for both macOS and Windows platforms. No implementation code exists yet; this is the starting point for development.
+Each tool includes:
+- Full source code (Python for macOS, Python/PowerShell for Windows)
+- Test suites with pytest/Pester
+- Homebrew formulas (macOS)
+- Sample data and configuration files where applicable
+- Documentation (PRD.md, IMPLEMENTATION.md, TASKS.md) in `docs/` subdirectories
 
 ## Development
 
