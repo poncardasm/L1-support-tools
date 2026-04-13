@@ -23,12 +23,12 @@
 
 ## Phase 3: Core Commands
 
-- [ ] Implement `New-ADProvisionUser` in `public/`
-- [ ] Implement `Add-ADProvisionGroup` in `public/`
-- [ ] Implement `Enable-ADProvisionMailbox` in `public/`
-- [ ] Implement `Reset-ADProvisionPassword` in `public/`
-- [ ] Implement `Remove-ADProvisionUser` in `public/`
-- [ ] All commands support `-WhatIf` (dry-run)
+- [x] Implement `New-ADProvisionUser` in `public/`
+- [x] Implement `Add-ADProvisionGroup` in `public/`
+- [x] Implement `Enable-ADProvisionMailbox` in `public/`
+- [x] Implement `Reset-ADProvisionPassword` in `public/`
+- [x] Implement `Remove-ADProvisionUser` in `public/`
+- [x] All commands support `-WhatIf` (dry-run)
 
 ---
 
