@@ -42,10 +42,12 @@
 
 ## Phase 5: Testing
 
-- [ ] Create Pester test suite in `tests/`
-- [ ] Test `-WhatIf` mode for all commands
-- [ ] Mock Graph API calls for unit tests
-- [ ] Run `Invoke-Pester tests/`
+- [x] Create Pester test suite in `tests/`
+- [x] Test `-WhatIf` mode for all commands
+- [x] Mock Graph API calls for unit tests
+- [x] Parameter validation tests
+- [x] Helper function tests
+- [x] Configuration loading tests
 
 ---
 
