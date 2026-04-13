@@ -54,9 +54,9 @@
 
 ## Phase 7: Documentation
 
-- [ ] Write `README.md` with macOS-specific instructions
-- [ ] Document certificate setup
-- [ ] Add bash/zsh command examples
+- [x] Write `README.md` with macOS-specific instructions
+- [x] Document certificate setup
+- [x] Add bash/zsh command examples
 
 ---
 
