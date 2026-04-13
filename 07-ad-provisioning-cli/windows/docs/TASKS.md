@@ -2,11 +2,11 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create PowerShell module structure (`ad-provision.psd1`, `ad-provision.psm1`)
-- [ ] Create `public/` directory with empty function files
-- [ ] Create `private/` directory for helper functions
-- [ ] Create `config/creds.env.example`
-- [ ] Verify `Import-Module ./ad-provision.psd1` works
+- [x] Create PowerShell module structure (`ad-provision.psd1`, `ad-provision.psm1`)
+- [x] Create `public/` directory with empty function files
+- [x] Create `private/` directory for helper functions
+- [x] Create `config/creds.env.example`
+- [x] Verify `Import-Module ./ad-provision.psd1` works
 
 ---
 
