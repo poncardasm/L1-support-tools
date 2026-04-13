@@ -47,7 +47,7 @@
 
 ## Phase 6: Homebrew Packaging
 
-- [ ] Create `Formula/ad-provision.rb`
+- [x] Create `Formula/ad-provision.rb`
 - [ ] Test: `brew install -- Formula/ad-provision.rb` works
 
 ---
