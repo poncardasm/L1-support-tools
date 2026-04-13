@@ -70,5 +70,5 @@
 
 ## Phase 8: Publish
 
-- [ ] Push to GitHub
+- [x] Push to GitHub (committed to main branch)
 - [ ] Optional: publish to PowerShell Gallery
