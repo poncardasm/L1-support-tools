@@ -12,8 +12,8 @@
 
 ## Phase 2: Microsoft Graph Integration
 
-- [ ] Implement `graph_client.py` with certificate-based auth
-- [ ] Implement `config.py` for loading credentials from `~/.config/`
+- [x] Implement `graph_client.py` with certificate-based auth
+- [x] Implement `config.py` for loading credentials from `~/.config/`
 - [ ] Test connection to EntraID with certificate
 
 ---
