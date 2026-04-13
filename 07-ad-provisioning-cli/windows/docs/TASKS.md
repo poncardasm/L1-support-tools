@@ -12,10 +12,12 @@
 
 ## Phase 2: Microsoft Graph Integration
 
-- [ ] Install `Microsoft.Graph` and `ExchangeOnlineManagement` modules
-- [ ] Implement `Connect-GraphSession` in `private/`
-- [ ] Implement `Get-ProvisionConfig` for credential loading
-- [ ] Test connection to EntraID with certificate auth
+- [x] Install `Microsoft.Graph` and `ExchangeOnlineManagement` modules
+- [x] Implement `Connect-GraphSession` in `private/`
+- [x] Implement `Get-ProvisionConfig` for credential loading
+- [x] Implement `Connect-ExchangeSession` for Exchange Online
+- [x] Implement `New-TemporaryPassword` helper
+- [x] Test connection to EntraID with certificate auth
 
 ---
 
@@ -32,9 +34,9 @@
 
 ## Phase 4: Output Formatting
 
-- [ ] Implement `Write-ProvisionOutput` helper
-- [ ] Consistent `[OK]`, `[FAIL]`, `[TEMP]`, `[WARN]` prefixes
-- [ ] Test output formatting in PowerShell console
+- [x] Implement `Write-ProvisionOutput` helper
+- [x] Consistent `[OK]`, `[FAIL]`, `[TEMP]`, `[WARN]` prefixes
+- [x] Test output formatting in PowerShell console
 
 ---
 
