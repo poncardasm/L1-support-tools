@@ -20,19 +20,19 @@
 
 ## Phase 3: Core Commands
 
-- [ ] Implement `new-user` command in Click
-- [ ] Implement `add-group` command
-- [ ] Implement `enable-mailbox` command
-- [ ] Implement `reset-password` command
-- [ ] Implement `deprovision` command
-- [ ] All commands support `--dry-run` flag
+- [x] Implement `new-user` command in Click
+- [x] Implement `add-group` command
+- [x] Implement `enable-mailbox` command
+- [x] Implement `reset-password` command
+- [x] Implement `deprovision` command
+- [x] All commands support `--dry-run` flag
 
 ---
 
 ## Phase 4: Output Formatting
 
-- [ ] Implement `output.py` with consistent formatting
-- [ ] Test `[OK]`, `[FAIL]`, `[TEMP]`, `[WARN]` prefixes
+- [x] Implement `output.py` with consistent formatting
+- [x] Test `[OK]`, `[FAIL]`, `[TEMP]`, `[WARN]` prefixes
 
 ---
 
