@@ -2,11 +2,11 @@
 
 ## Phase 1: Project Skeleton
 
-- [ ] Create `pyproject.toml` with msgraph-sdk + azure-identity deps
-- [ ] Create `ad_provision/__init__.py` with version
-- [ ] Create `ad_provision/__main__.py` for CLI entry
-- [ ] Create `config/creds.env.example`
-- [ ] Verify `pip install -e .` works and `ad-provision --help` prints
+- [x] Create `pyproject.toml` with msgraph-sdk + azure-identity deps
+- [x] Create `ad_provision/__init__.py` with version
+- [x] Create `ad_provision/__main__.py` for CLI entry
+- [x] Create `config/creds.env.example`
+- [x] Verify `pip install -e .` works and `ad-provision --help` prints
 
 ---
 
