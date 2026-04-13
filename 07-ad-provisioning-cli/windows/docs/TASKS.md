@@ -53,9 +53,10 @@
 
 ## Phase 6: Documentation
 
-- [ ] Write `README.md` with Windows-specific instructions
-- [ ] Document credential setup (certificate-based auth)
-- [ ] Add PowerShell command examples
+- [x] Write `README.md` with Windows-specific instructions
+- [x] Document credential setup (certificate-based auth)
+- [x] Add PowerShell command examples
+- [x] Add troubleshooting section
 
 ---
 
