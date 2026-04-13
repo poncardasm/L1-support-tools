@@ -38,10 +38,10 @@
 
 ## Phase 5: Testing
 
-- [ ] Create `tests/test_commands.py`
-- [ ] Test `--dry-run` mode for all commands
-- [ ] Mock Graph API calls for unit tests
-- [ ] Run `pytest tests/ -v`
+- [x] Create `tests/test_commands.py`
+- [x] Test `--dry-run` mode for all commands
+- [x] Mock Graph API calls for unit tests
+- [x] Run `pytest tests/ -v`
 
 ---
 
